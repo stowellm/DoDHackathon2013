@@ -3,13 +3,19 @@ package dod.hackathon.combatfeeding;
 import android.os.Bundle;
 import android.app.Activity;
 import android.view.Menu;
+import dod.hackathon.combatfeeding.api.*;
 
 public class MainActivity extends Activity {
+	
+	public RestAPI rapi;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		rapi = new RestAPI();
+		
 	}
 
 	@Override
