@@ -103,6 +103,10 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 			p.setColor(drawColor);
 			canvas.drawArc(r, -90, -degreesOut, false, p);
 
+			p.setStrokeWidth(0.5f);
+			p.setColor(Color.BLACK);
+			canvas.drawText(Math.round(visibleProgress) + "%", canvas.getWidth()/2, canvas.getHeight()/2, p);
+			
 		}
 	}
 

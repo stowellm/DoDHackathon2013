@@ -102,17 +102,17 @@ public class Day {
 			calorieRequired = (double) (655 + ( 4.35 * weight ) + ( 4.7 * height ) - ( 4.7 * age ));
 		}
 		if(weightDir == 0) { //percentages for madoubleaining weight
-			fatRequired = (double) (calorieRequired * 0.3);
-			proteinRequired = (double) (calorieRequired * 0.2);
-			carbRequired = (double) (calorieRequired * 0.5);
+			fatRequired = (double) (calorieRequired * 0.3) / 9;
+			proteinRequired = (double) (calorieRequired * 0.2) / 4;
+			carbRequired = (double) (calorieRequired * 0.5) / 4;
 		} else if(weightDir < 0) { //percentages for gaining weight
-			fatRequired = (double) (calorieRequired * 0.25);
-			proteinRequired = (double) (calorieRequired * 0.30);
-			carbRequired = (double) (calorieRequired * 0.45);
+			fatRequired = (double) (calorieRequired * 0.25) / 9;
+			proteinRequired = (double) (calorieRequired * 0.30) / 4;
+			carbRequired = (double) (calorieRequired * 0.45) / 4;
 		} else { //percentages for losing weight
-			fatRequired = (double) (calorieRequired * 0.3);
-			proteinRequired = (double) (calorieRequired * 0.2);
-			carbRequired = (double) (calorieRequired * 0.5);
+			fatRequired = (double) (calorieRequired * 0.3) / 9;
+			proteinRequired = (double) (calorieRequired * 0.2) / 4;
+			carbRequired = (double) (calorieRequired * 0.5) / 4;
 			calorieRequired -= 500;
 		}
 	}
