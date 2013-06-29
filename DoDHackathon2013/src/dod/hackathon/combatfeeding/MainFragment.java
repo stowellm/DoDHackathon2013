@@ -132,10 +132,10 @@ public class MainFragment extends Fragment {
 				mPrefs.getFloat("my_weight", -1),
 				mWeightDelta);
 
-		calText.setText(thisDay.getCalorieIntake() + "\nout of\n" + thisDay.getCalorieRequired());
-		carbText.setText(thisDay.getCarbIntake() + "\nout of\n" + thisDay.getCarbRequired());
-		fatText.setText(thisDay.getFatIntake() + "\nout of\n" + thisDay.getFatRequired());
-		protText.setText(thisDay.getProteinIntake() + "\nout of\n" + thisDay.getProteinRequired());	
+		calText.setText(Math.round(thisDay.getCalorieIntake()) + "\nout of\n" + Math.round(thisDay.getCalorieRequired()));
+		carbText.setText(Math.round(thisDay.getCarbIntake()) + "\nout of\n" + Math.round(thisDay.getCarbRequired()));
+		fatText.setText(Math.round(thisDay.getFatIntake()) + "\nout of\n" + Math.round(thisDay.getFatRequired()));
+		protText.setText(Math.round(thisDay.getProteinIntake()) + "\nout of\n" + Math.round(thisDay.getProteinRequired()));	
 		
 		calProg.setProgress(((float)thisDay.getCalorieIntake() / (float)thisDay.getCalorieRequired()) * 100);
 		carbProg.setProgress(((float)thisDay.getCarbIntake() / (float)thisDay.getCarbRequired()) * 100);
