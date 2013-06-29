@@ -72,8 +72,10 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 
 						case ITEM_MENU:
 							if ((String) food.get("MENU") != null) {
-								if (((String) food.get("MENU")).toLowerCase(
-										Locale.US).contains(
+								String tmp = ((String) food.get("MENU")).toLowerCase(
+										Locale.US);
+								String tmpSplit[] = tmp.split(" ");
+								if (tmpSplit[tmpSplit.length - 1].equals(
 										charSequence.toString().toLowerCase(
 												Locale.US))) {
 									newFiltered.add(food);
