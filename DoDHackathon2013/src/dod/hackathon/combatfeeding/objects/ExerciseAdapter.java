@@ -1,5 +1,7 @@
 package dod.hackathon.combatfeeding.objects;
 
+/* PLEASE READ THE NOTE AT THE BOTTOM OF THE PAGE */
+
 import java.util.ArrayList;
 
 import android.content.Context;
@@ -19,13 +21,17 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 	private Context context;
 	private int layoutId;
 	public ArrayList<Integer> placeholder;
+	public int gearWeight;
+	public float userWeight;
 
 	public ExerciseAdapter(Context context, int textViewResourceId,
-			ArrayList<Exercise> exercises) {
+			ArrayList<Exercise> exercises, int gearWeight, float userWeight) {
 		super(context, textViewResourceId);
 
 		this.context = context;
 		this.exercises = exercises;
+		this.gearWeight = 100; // TODO this.gearWeight = gearWeight;
+		this.userWeight = userWeight;
 		
 		placeholder = new ArrayList<Integer>();
 		for (@SuppressWarnings("unused") Exercise e : exercises)
@@ -86,6 +92,17 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 			public void onNothingSelected(AdapterView<?> arg0) {
 			}
 		});
+		
+		/*
+		 * VERY IMPORTANT NOTE PLEASE READ THIS THING OR ELSE YOUR CODE WILL BE BAD:
+		 * 
+		 * Since we do not currently calculate duration of an exercise, this calorie
+		 * formula will assume one hour for all exercises.
+		 */
+		TextView cal = (TextView) view.findViewById(R.id.list_element_exercise_calories);
+		int calorieExpenditure = ((int) (.0175 * ((Float) exercises.get(position).get("METS"))
+				* (((float)(userWeight + gearWeight)) / 2.2f))) * 60;
+		cal.setText(calorieExpenditure + " cal/hr");
 		
 		return view;
 
