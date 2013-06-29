@@ -6,6 +6,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
@@ -16,6 +18,7 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 	private ArrayList<Exercise> exercises;
 	private Context context;
 	private int layoutId;
+	private ArrayList<Integer> placeholder;
 
 	public ExerciseAdapter(Context context, int textViewResourceId,
 			ArrayList<Exercise> exercises) {
@@ -23,6 +26,11 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 
 		this.context = context;
 		this.exercises = exercises;
+		
+		placeholder = new ArrayList<Integer>();
+		for (@SuppressWarnings("unused") Exercise e : exercises)
+			placeholder.add(0);
+		
 		layoutId = textViewResourceId;
 
 	}
@@ -67,6 +75,17 @@ public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 		ArrayAdapter<String> adapter = new ArrayAdapter<String>(context, 
 				android.R.layout.simple_spinner_item, choices);
 		spin.setAdapter(adapter);
+		spin.setSelection(placeholder.get(position));
+		final int mPos = position;
+		spin.setOnItemSelectedListener(new OnItemSelectedListener() {
+			@Override
+			public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int pos, long id) {
+				placeholder.set(mPos, pos);
+			}
+			@Override
+			public void onNothingSelected(AdapterView<?> arg0) {
+			}
+		});
 		
 		return view;
 
