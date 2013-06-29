@@ -41,5 +41,15 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 		// TODO Auto-generated method stub
 		
 	}
+	
+	@Override
+	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+	    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+	    //int parentWidth = MeasureSpec.getSize(widthMeasureSpec);
+	    //int parentHeight = MeasureSpec.getSize(heightMeasureSpec);
+	    this.setMeasuredDimension(
+	    		widthMeasureSpec, widthMeasureSpec);
+	}
 
 }

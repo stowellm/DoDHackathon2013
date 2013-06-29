@@ -1,6 +1,8 @@
 package dod.hackathon.combatfeeding;
 
 import android.app.Activity;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -46,6 +48,12 @@ public class MainActivity extends Activity {
 		
 		Intent iProfile = new Intent(MainActivity.this, ProfileDialog.class);
 		startActivity(iProfile);
+		
+		FragmentManager fragmentManager = getFragmentManager();
+		FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+		MainFragment fragment = new MainFragment();
+		fragmentTransaction.add(R.id.mainholder, fragment);
+		fragmentTransaction.commit();
 	}
 
 	@Override

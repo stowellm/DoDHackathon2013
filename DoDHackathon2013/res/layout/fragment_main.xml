@@ -10,7 +10,8 @@
         android:layout_height="wrap_content"
         android:background="@drawable/green_button_selector"
         android:orientation="vertical"
-        android:padding="10dp" >
+        android:padding="10dp"
+        android:clickable="true" >
 
         <TextView
             android:id="@+id/text_username"
@@ -51,7 +52,7 @@
 
             <dod.hackathon.combatfeeding.ProgressCircleView
                 android:id="@+id/surface_calories"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp" />
 
@@ -84,7 +85,7 @@
 
             <dod.hackathon.combatfeeding.ProgressCircleView
                 android:id="@+id/surface_carbs"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp" />
 
@@ -117,7 +118,7 @@
 
             <dod.hackathon.combatfeeding.ProgressCircleView
                 android:id="@+id/surface_fat"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp" />
 
@@ -149,7 +150,7 @@
 
             <dod.hackathon.combatfeeding.ProgressCircleView
                 android:id="@+id/surface_protein"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="2dp" />
 
