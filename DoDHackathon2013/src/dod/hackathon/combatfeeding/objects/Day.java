@@ -36,10 +36,6 @@ public class Day {
 		return calorieRequired;
 	}
 	
-	public void setCalorieRequired(int calorieRequired) {
-		this.calorieRequired = calorieRequired;
-	}
-	
 	public int getProteinIntake() {
 		return proteinIntake;
 	}
@@ -95,6 +91,30 @@ public class Day {
 
 	public ArrayList<Food> getfoodLog() {
 		return foodLog;
+	}
+	
+	/* Function to calculate the required values */
+	public void calcRequiredValues(boolean isMale, int age, int height, float weight, int weightDir) {
+		//Harris-Benedict Formula for calculating required calories
+		if(isMale) {
+			calorieRequired = (int) (66 + ( 6.23 * weight ) + ( 12.7 * height ) - ( 6.8 * age ));
+		} else {
+			calorieRequired = (int) (655 + ( 4.35 * weight ) + ( 4.7 * height ) - ( 4.7 * age ));
+		}
+		if(weightDir == 0) { //percentages for maintaining weight
+			fatRequired = (int) (calorieRequired * 0.3);
+			proteinRequired = (int) (calorieRequired * 0.2);
+			carbRequired = (int) (calorieRequired * 0.5);
+		} else if(weightDir < 0) { //percentages for gaining weight
+			fatRequired = (int) (calorieRequired * 0.25);
+			proteinRequired = (int) (calorieRequired * 0.30);
+			carbRequired = (int) (calorieRequired * 0.45);
+		} else { //percentages for losing weight
+			fatRequired = (int) (calorieRequired * 0.3);
+			proteinRequired = (int) (calorieRequired * 0.2);
+			carbRequired = (int) (calorieRequired * 0.5);
+			calorieRequired -= 500;
+		}
 	}
 
 	
