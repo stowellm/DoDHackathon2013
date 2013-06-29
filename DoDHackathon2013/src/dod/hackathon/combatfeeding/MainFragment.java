@@ -11,10 +11,8 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import dod.hackathon.combatfeeding.objects.Day;
 import dod.hackathon.combatfeeding.objects.Food;
@@ -34,7 +32,7 @@ public class MainFragment extends Fragment {
 	int caloriesBurnedFromExercise;
 	
 	// Variables retrieved from gear
-	int gearWeight;
+	int gearWeight = 0;
 	
 	// Variables retrieved from food
 	int calories;
@@ -52,7 +50,7 @@ public class MainFragment extends Fragment {
 	public final int RESULT_GEAR = 2;
 	public final int RESULT_EXERCISE = 3;
 
-	Button logFood, logActivity, viewTimeline;
+	Button logActivity, logFood, viewTimeline;
 	
 	FoodAdapter foodAdapter;
 
@@ -98,15 +96,6 @@ public class MainFragment extends Fragment {
 		protProg = (ProgressCircleView) v.findViewById(R.id.surface_protein);
 		protProg.setColor(getResources().getColor(R.color.protein_color));
 		
-		logFood = (Button) v.findViewById(R.id.button_logfood);
-		logFood.setOnClickListener(new OnClickListener() {
-			@Override
-			public void onClick(View arg0) {
-				Intent iFoodPicker = new Intent(getActivity(), FoodPicker.class);
-				startActivityForResult(iFoodPicker, RESULT_FOODPICKED);
-			}
-		});
-		
 		logActivity = (Button) v.findViewById(R.id.button_logactivity);
 		logActivity.setOnClickListener(new OnClickListener() {
 			@Override
@@ -116,6 +105,16 @@ public class MainFragment extends Fragment {
 				startActivityForResult(iExercisePicker, RESULT_EXERCISE);
 			}
 		});
+		
+		logFood = (Button) v.findViewById(R.id.button_logfood);
+		logFood.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent iFoodPicker = new Intent(getActivity(), FoodPicker.class);
+				startActivityForResult(iFoodPicker, RESULT_FOODPICKED);
+			}
+		});
+		logFood.setEnabled(false);
 		
 		viewTimeline = (Button) v.findViewById(R.id.button_viewday);
 		viewTimeline.setOnClickListener(new OnClickListener() {
@@ -127,6 +126,7 @@ public class MainFragment extends Fragment {
 				startActivity(iTimeline);
 			}
 		});
+		viewTimeline.setEnabled(false);
 
 		calText = (TextView) v.findViewById(R.id.text_calories);
 		carbText = (TextView) v.findViewById(R.id.text_carbs);
@@ -176,12 +176,15 @@ public class MainFragment extends Fragment {
 		if(requestCode == RESULT_PROFILE) {
 			setupViews();
 		} else if(requestCode == RESULT_FOODPICKED) {
-			String foodId = data.getStringExtra("food_id");
-			Food f = getFoodFromCacheWithKey(foodId);
-			if(f != null) {
-				thisDay.addFood(f);
+			if (data != null) {
+				String foodId = data.getStringExtra("food_id");
+				Food f = getFoodFromCacheWithKey(foodId);
+				if(f != null) {
+					thisDay.addFood(f);
+					viewTimeline.setEnabled(true);
+				}
+				setupViews();
 			}
-			setupViews();
 		} else if(requestCode == RESULT_GEAR) {
 			
 		} else if (requestCode == RESULT_EXERCISE) {
@@ -189,6 +192,7 @@ public class MainFragment extends Fragment {
 				exerciseNames = data.getStringArrayExtra("exercise_names");
 				exerciseTimes = data.getIntArrayExtra("exercise_times");
 				for (int i = 0; i < exerciseTimes.length; i++) Log.w("tag", "Time: " + exerciseTimes[i]);
+				logFood.setEnabled(true);
 			}
 		}
 	}

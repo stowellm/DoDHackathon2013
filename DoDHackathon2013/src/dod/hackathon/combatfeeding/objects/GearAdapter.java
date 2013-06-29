@@ -21,7 +21,6 @@ public class GearAdapter extends ArrayAdapter<Gear> {
 		ITEM_NAME, ITEM_MENU
 	};
 
-	@SuppressWarnings("unchecked")
 	public GearAdapter(Context context, int textViewResourceId,
 			ArrayList<Gear> original) {
 		super(context, textViewResourceId);
