@@ -4,27 +4,32 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.ListView;
 import android.widget.TextView;
 import dod.hackathon.combatfeeding.objects.Day;
+import dod.hackathon.combatfeeding.objects.FoodAdapter;
 
 public class MainFragment extends Fragment {
 
 	LinearLayout topBarLayout;
 	ProgressCircleView calProg, carbProg, fatProg, protProg;
 	TextView userName, calText, carbText, fatText, protText;
-
+	ListView loggedFoodList;
+	
 	Day thisDay;
 
-	public final int PROFILE_RESULT = 0;
+	public final int RESULT_PROFILE = 0;
+	public final int RESULT_FOODPICKED = 1;
 
 	Button logFood, logActivity, viewTimeline;
+	
+	FoodAdapter foodAdapter;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -32,12 +37,14 @@ public class MainFragment extends Fragment {
 		View v = inflater.inflate(R.layout.fragment_main, container, false);
 		thisDay = new Day();
 
+		loggedFoodList = (ListView) v.findViewById(R.id.loggedFoodList);
+		
 		topBarLayout = (LinearLayout) v.findViewById(R.id.bar_userinfo);
 		topBarLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
 				Intent iProfile = new Intent(getActivity(), ProfileDialog.class);
-				startActivityForResult(iProfile, PROFILE_RESULT);
+				startActivityForResult(iProfile, RESULT_PROFILE);
 			}
 		});
 
@@ -57,11 +64,18 @@ public class MainFragment extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				Intent iFoodPicker = new Intent(getActivity(), FoodPicker.class);
-				startActivity(iFoodPicker);
+				startActivityForResult(iFoodPicker, RESULT_FOODPICKED);
 			}
 		});
 		
 		viewTimeline = (Button) v.findViewById(R.id.button_viewday);
+		viewTimeline.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View v) {
+				Intent iTimeline = new Intent(getActivity(), TimelineActivity.class);
+				startActivity(iTimeline);
+			}
+		});
 
 		calText = (TextView) v.findViewById(R.id.text_calories);
 		carbText = (TextView) v.findViewById(R.id.text_carbs);
@@ -75,6 +89,9 @@ public class MainFragment extends Fragment {
 
 	public void setupViews() {
 
+		foodAdapter = new FoodAdapter(getActivity(), R.layout.list_element_food, thisDay.getfoodLog());
+		loggedFoodList.setAdapter(foodAdapter);
+		
 		SharedPreferences mPrefs = getActivity().getSharedPreferences("dod_hackathon", 0);
 
 		userName.setText(mPrefs.getString("my_name", "John Doe"));
@@ -104,7 +121,11 @@ public class MainFragment extends Fragment {
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		super.onActivityResult(requestCode, resultCode, data);
-		if(requestCode == PROFILE_RESULT) {
+		if(requestCode == RESULT_PROFILE) {
+			setupViews();
+		} else if(requestCode == RESULT_FOODPICKED) {
+			//Food resFood = (Food) data.getParcelableExtra("food");
+			//thisDay.addFood(resFood);
 			setupViews();
 		}
 	}

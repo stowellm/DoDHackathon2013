@@ -1,14 +1,14 @@
 package dod.hackathon.combatfeeding.objects;
 
-import java.io.Serializable;
+import android.os.Parcel;
+import android.os.Parcelable;
 
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 
-public class Food extends GenericJson implements Serializable {
+public class Food extends GenericJson {
 		
-	private static final long serialVersionUID = 3804307861108745651L;
-
+	
 		@Key("ITEM")
 		private String name;
 		
@@ -35,5 +35,6 @@ public class Food extends GenericJson implements Serializable {
 		
 		@Key("CALORIES")
 		private float calories;
+
 
 }

@@ -42,7 +42,7 @@ public class FoodPicker extends Activity {
 			public void onItemClick(AdapterView<?> adapter, View view, int pos, long l) {
 				Food f = foodAdapter.getItem(pos);
 				Intent ret = new Intent();
-				ret.putExtra("food", f);
+				//ret.putExtra("food", f);
 				setResult(RESULT_OK, ret);
 				finish();
 			}

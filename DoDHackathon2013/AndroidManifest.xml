@@ -34,6 +34,11 @@
             android:label="Select Food"
             android:theme="@style/DialogTheme">
         </activity>
+        <activity
+            android:name="dod.hackathon.combatfeeding.TimelineActivity"
+            android:label="Timeline"
+            android:theme="@style/AppTheme" >
+        </activity>
         
     </application>
 
