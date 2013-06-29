@@ -12,7 +12,6 @@ import com.kinvey.java.User;
 
 public class MainActivity extends Activity {
 	
-
 	private Client mKinveyClient;
 	private String TAG = "COMBATFEED";
 
