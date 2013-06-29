@@ -1,13 +1,40 @@
 package dod.hackathon.combatfeeding.objects;
 
-import com.kinvey.android.AsyncAppData;
-import com.kinvey.android.Client;
-import com.kinvey.java.core.KinveyClientCallback;
+import com.google.api.client.json.GenericJson;
+import com.google.api.client.util.Key;
 
-import dod.hackathon.combatfeeding.objects.entities.FoodEntity;
+public class Food extends GenericJson {
+		
+		@Key("ITEM")
+		private String name;
+		
+		@Key("MENU")
+		private String menu;
+		
+		@Key("ITEMTYPE")
+		private String itemType;
+		
+		@Key("_id")
+		private String id;
+		
+		@Key("RATION")
+		private String ration;
+		
+		@Key("CARBOHYDRATES_G")
+		private float carbs;
+		
+		@Key("PROTEIN_G")
+		private float proteins;
+		
+		@Key("TOTALFAT_G")
+		private float fats;
+		
+		@Key("CALORIES")
+		private float calories;
 
-public class Food {
-	private boolean wasFetched = false;
+}
+	
+	/*private boolean wasFetched = false;
 	private FoodEntity food;
 
 	// Get whether the food has been successfully fetched.
@@ -15,12 +42,12 @@ public class Food {
 		return wasFetched;
 	}
 	
-	public Food(Client kinveyClient) {
+	public Food(Client kinveyClient, String id) {
 		
-	   /* food = new FoodEntity();
+		food = new FoodEntity();
 	    
-	    AsyncAppData<FoodEntity> myFoods = kinveyClient.appData("events", FoodEntity.class);
-	    myFoods.getEntity(foodId, new KinveyClientCallback<FoodEntity>() {
+	    AsyncAppData<FoodEntity> myFoods = kinveyClient.appData("foods", FoodEntity.class);
+	    myFoods.getEntity(id, new KinveyClientCallback<FoodEntity>() {
 	    	
 	    	@Override
 	    	public void onSuccess(FoodEntity result) {
@@ -32,7 +59,5 @@ public class Food {
 	    		wasFetched = false;
 	    	}
 	    	
-	    });*/
-	}
-
-}
+	    });
+	}*/
