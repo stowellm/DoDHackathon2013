@@ -20,10 +20,13 @@
     <!-- Strings for the main day view fragment -->
     <string name="placeholder_username">John Doe</string>
     <string name="placeholder_loadtype">Rifleman</string>
+    <string name="placeholder_nutrition_ratio">0000\nout of\n0000</string>
+    <string name="button_logfood">Log Food</string>
+    <string name="button_logactivity">Log Activity</string>
     
     <!-- Strings for the nutrition types -->
     <string name="calories">Calories</string>
-    <string name="carbs">Carbohydrates</string>
+    <string name="carbs">Carbs</string>
     <string name="fat">Fat</string>
     <string name="protein">Protein</string>
     <string name="calories_unit">kCal</string>
