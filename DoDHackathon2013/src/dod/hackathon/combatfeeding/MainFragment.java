@@ -3,6 +3,7 @@ package dod.hackathon.combatfeeding;
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,19 +12,21 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import dod.hackathon.combatfeeding.objects.Day;
+import dod.hackathon.combatfeeding.objects.Food;
 import dod.hackathon.combatfeeding.objects.FoodAdapter;
+import dod.hackathon.combatfeeding.objects.dbadapter.AppDbAdapter;
 
 public class MainFragment extends Fragment {
 
-	RelativeLayout topBarLayout;
+	LinearLayout topBarLayout, gearLayout;
 	ProgressCircleView calProg, carbProg, fatProg, protProg;
 	TextView userName, loadType, calText, carbText, fatText, protText;
 	ListView loggedFoodList;
-	ImageButton btnGear;
 	
 	// Variables retrieved from exercises
 	String[] exerciseNames;
@@ -38,6 +41,9 @@ public class MainFragment extends Fragment {
 	int carbs;
 	int fat;
 	int protein;
+	
+	// Database
+	AppDbAdapter mDbHelper;
 	
 	Day thisDay;
 
@@ -55,10 +61,12 @@ public class MainFragment extends Fragment {
 		// Inflate the layout for this fragment
 		View v = inflater.inflate(R.layout.fragment_main, container, false);
 		thisDay = new Day();
+		
+		mDbHelper = new AppDbAdapter(getActivity());
 
 		loggedFoodList = (ListView) v.findViewById(R.id.loggedFoodList);
 		
-		topBarLayout = (RelativeLayout) v.findViewById(R.id.bar_userinfo);
+		topBarLayout = (LinearLayout) v.findViewById(R.id.bar_userinfo);
 		topBarLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -67,8 +75,8 @@ public class MainFragment extends Fragment {
 			}
 		});
 
-		btnGear = (ImageButton) v.findViewById(R.id.btn_gear);
-		btnGear.setOnClickListener(new OnClickListener() {
+		gearLayout = (LinearLayout) v.findViewById(R.id.bar_gear);
+		gearLayout.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -169,7 +177,10 @@ public class MainFragment extends Fragment {
 			setupViews();
 		} else if(requestCode == RESULT_FOODPICKED) {
 			String foodId = data.getStringExtra("food_id");
-			//thisDay.addFood(resFood);
+			Food f = getFoodFromCacheWithKey(foodId);
+			if(f != null) {
+				thisDay.addFood(f);
+			}
 			setupViews();
 		} else if(requestCode == RESULT_GEAR) {
 			
@@ -180,6 +191,31 @@ public class MainFragment extends Fragment {
 				for (int i = 0; i < exerciseTimes.length; i++) Log.w("tag", "Time: " + exerciseTimes[i]);
 			}
 		}
+	}
+	
+	private Food getFoodFromCacheWithKey(String id) {
+		Food f = new Food();
+		mDbHelper.open();
+		Cursor c = mDbHelper.getFoodWithKey(id);
+		mDbHelper.close();
+
+		if (c == null || c.getCount() == 0) {
+			Log.e("fields", "no cursor");
+			return f;
+		}
+
+		f.carbs = c.getString(c.getColumnIndex(AppDbAdapter.KEY_CARBOHYDRATES_G));
+		f.menu = c.getString(c.getColumnIndex(AppDbAdapter.KEY_MENU));
+		f.calories = c.getString(c.getColumnIndex(AppDbAdapter.KEY_CALORIES));
+		f.id = c.getString(c.getColumnIndex(AppDbAdapter.KEY_ROWID));
+		f.ration = c.getString(c.getColumnIndex(AppDbAdapter.KEY_RATION));
+		f.name = c.getString(c.getColumnIndex(AppDbAdapter.KEY_ITEM));
+		f.fats = c.getString(c.getColumnIndex(AppDbAdapter.KEY_TOTALFAT_G));			
+		f.proteins = c.getString(c.getColumnIndex(AppDbAdapter.KEY_PROTEINS_G));
+		f.itemType = c.getString(c.getColumnIndex(AppDbAdapter.KEY_ITEMTYPE));
+
+		return f;
+
 	}
 
 }

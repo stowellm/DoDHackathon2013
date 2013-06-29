@@ -35,6 +35,7 @@
     <string name="button_logactivity">Log Activity</string>
     <string name="button_viewday">View Timeline</string>
     <string name="label_foodlist">Today\'s Foods</string>
+    <string name="label_gearbtn">Combat Load</string>
     
     <!-- Strings for the nutrition types -->
     <string name="calories">Calories</string>

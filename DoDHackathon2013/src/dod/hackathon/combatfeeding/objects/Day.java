@@ -128,8 +128,19 @@ public class Day {
 	// Add a new food to food log.
 	public void addFood(Food food) {
 		foodLog.add(food);
+		
+		//reset counts to 0
+		calorieIntake = 0;
+		fatIntake = 0;
+		carbIntake = 0;
+		proteinIntake = 0;
+		
+		//iterate over foods, sum their counts
 		for(Food f : foodLog) {
 			calorieIntake += Double.parseDouble((String)f.get("CALORIES"));
+			fatIntake += Double.parseDouble((String) f.get("TOTALFAT_G"));
+			carbIntake += Double.parseDouble((String) f.get("CARBOHYDRATES_G"));
+			proteinIntake += Double.parseDouble((String) f.get("PROTEIN_G"));
 		}
 	}
 	
