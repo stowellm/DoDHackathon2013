@@ -55,7 +55,7 @@ public class FoodPicker extends Activity {
 					long l) {
 				Food f = foodAdapter.getItem(pos);
 				Intent ret = new Intent();
-				//ret.putExtra("food", f);
+				ret.putExtra("food_id", (String)f.get("_id"));
 				setResult(RESULT_OK, ret);
 				finish();
 			}
