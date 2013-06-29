@@ -1,14 +1,12 @@
 package dod.hackathon.combatfeeding.objects;
 
-import java.util.Vector;
-
-import com.kinvey.android.Client;
+import java.util.ArrayList;
 
 public class Day {
 	
 	public Day() {
-		exerciseLog = new Vector<Exercise>();
-		foodLog = new Vector<Food>();
+		exerciseLog = new ArrayList<Exercise>();
+		foodLog = new ArrayList<Food>();
 	}
 	
 	/* Basic Nutrition Fields */
@@ -22,8 +20,8 @@ public class Day {
 	private int carbRequired;
 	
 	/* Logs for Excerise and foods */
-	private Vector<Exercise> exerciseLog;
-	private Vector<Food> foodLog;
+	private ArrayList<Exercise> exerciseLog;
+	private ArrayList<Food> foodLog;
 	
 	/* Getters and Setters for Nutrition Fields */
 	public int getCalorieIntake() {
@@ -91,11 +89,11 @@ public class Day {
 	}
 	
 	/* Getters for exercise and food. */
-	public Vector<Exercise> getExerciseLog() {
+	public ArrayList<Exercise> getExerciseLog() {
 		return exerciseLog;
 	}
 
-	public Vector<Food> getfoodLog() {
+	public ArrayList<Food> getfoodLog() {
 		return foodLog;
 	}
 
@@ -103,28 +101,23 @@ public class Day {
 	/* Functions relating to managing food/exercise vectors. */
 	
 	// Add a new exercise to exercise log.
-	public boolean addExercise(Exercise e, Client kinveyClient) {
-		// TODO
-		return true;
+	public void addExercise(Exercise exercise) {
+		exerciseLog.add(exercise);
 	}
 	
 	// Add a new food to food log.
-	public boolean addFood(Food f, Client kinveyClient) {
-		
-		// TODO
-		return true;
+	public void addFood(Food food) {
+		foodLog.add(food);
 	}
 	
 	// Delete an exercise from exercise log.
-	public boolean deleteExercise(int key) {
-		// TODO
-		return true;
+	public void deleteExercise(Exercise exercise) {
+		exerciseLog.remove(exercise);
 	}
 	
 	// Delete a food from the food log.
-	public boolean deleteFood(int key) {
-		// TODO
-		return true;
+	public void deleteFood(Food food) {
+		foodLog.remove(food);
 	}
 	
 }
