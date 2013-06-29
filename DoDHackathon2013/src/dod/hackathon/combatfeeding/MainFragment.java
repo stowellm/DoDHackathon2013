@@ -171,8 +171,10 @@ public class MainFragment extends Fragment {
 		} else if(requestCode == RESULT_GEAR) {
 			
 		} else if (requestCode == RESULT_EXERCISE) {
-			exerciseNames = data.getStringArrayExtra("exercise_names");
-			exerciseTimes = data.getIntArrayExtra("exercise_times");
+			if (data != null) {
+				exerciseNames = data.getStringArrayExtra("exercise_names");
+				exerciseTimes = data.getIntArrayExtra("exercise_times");
+			}
 		}
 	}
 
