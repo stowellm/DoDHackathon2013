@@ -57,7 +57,7 @@ public class MainActivity extends Activity {
 		boolean firstSetup = mPrefs.getBoolean("first_setup", true);
 		if (firstSetup) {
 			Intent iProfile = new Intent(MainActivity.this, ProfileDialog.class);
-			startActivity(iProfile);
+			startActivityForResult(iProfile, 0);
 		}
 		
 		FragmentManager fragmentManager = getFragmentManager();

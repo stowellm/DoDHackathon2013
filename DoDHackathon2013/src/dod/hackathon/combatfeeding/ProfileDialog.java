@@ -40,7 +40,7 @@ public class ProfileDialog extends Activity {
 		ll.requestFocus();
 
 		nameBox = (EditText) findViewById(R.id.dialog_profile_user_name);
-		nameBox.setText(mPrefs.getString("my_name", "John Doe"));
+		nameBox.setText(mPrefs.getString("my_name", ""));
 		
 		male = (Button) findViewById(R.id.dialog_profile_male);
 		male.setOnClickListener(new OnClickListener() {
