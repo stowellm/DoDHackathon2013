@@ -24,6 +24,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name="dod.hackathon.combatfeeding.ProfileDialog"
+            android:label="My Profile"
+            android:theme="@style/DialogTheme" >
+        </activity>
+        
     </application>
 
 </manifest>
