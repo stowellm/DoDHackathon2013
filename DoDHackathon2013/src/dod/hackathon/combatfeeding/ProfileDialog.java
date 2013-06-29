@@ -105,9 +105,9 @@ public class ProfileDialog extends Activity {
 					ready = false;
 				} else {
 					weightLbs.setError(null);
-					int userWeight = Integer.parseInt(weightLbs.getText()
+					float userWeight = Float.parseFloat(weightLbs.getText()
 							.toString());
-					mEdit.putInt("my_weight", userWeight).commit();
+					mEdit.putFloat("my_weight", userWeight).commit();
 				}
 
 				if (targetWeightCheck.isChecked()) {
@@ -118,9 +118,9 @@ public class ProfileDialog extends Activity {
 						ready = false;
 					} else {
 						targetLbs.setError(null);
-						int userTargetWeight = Integer.parseInt(targetLbs
+						float userTargetWeight = Float.parseFloat(targetLbs
 								.getText().toString());
-						mEdit.putInt("target_weight", userTargetWeight)
+						mEdit.putFloat("target_weight", userTargetWeight)
 								.commit();
 					}
 				} else {
@@ -228,8 +228,8 @@ public class ProfileDialog extends Activity {
 		weightLbs = (EditText) findViewById(R.id.dialog_profile_my_weight);
 		targetLbs = (EditText) findViewById(R.id.dialog_profile_my_target);
 
-		int myWeight = mPrefs.getInt("my_weight", -1);
-		if (myWeight != -1)
+		float myWeight = mPrefs.getFloat("my_weight", -1.0f);
+		if (myWeight != -1.0f)
 			weightLbs.setText("" + myWeight);
 
 		targetWeightCheck = (CheckBox) findViewById(R.id.dialog_profile_target_weight_checkbox);
@@ -258,9 +258,9 @@ public class ProfileDialog extends Activity {
 		if (targetWeightSet) {
 			targetWeightCheck.toggle();
 
-			int userTargetWeight = mPrefs.getInt("target_weight", -1);
+			float userTargetWeight = mPrefs.getFloat("target_weight", -1.0f);
 			if (userTargetWeight != -1)
-				targetLbs.setText("" + mPrefs.getInt("target_weight", 0));
+				targetLbs.setText("" + userTargetWeight);
 		} else {
 			targetWeightLabel.setVisibility(View.INVISIBLE);
 			targetLbs.setVisibility(View.INVISIBLE);
