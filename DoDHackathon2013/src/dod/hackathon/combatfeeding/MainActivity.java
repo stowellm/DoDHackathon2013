@@ -1,6 +1,7 @@
 package dod.hackathon.combatfeeding;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -42,6 +43,9 @@ public class MainActivity extends Activity {
 		        });
 		    }
 		});
+		
+		Intent iProfile = new Intent(MainActivity.this, ProfileDialog.class);
+		startActivity(iProfile);
 	}
 
 	@Override
