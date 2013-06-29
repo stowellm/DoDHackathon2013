@@ -4,6 +4,7 @@ import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 
 public class Food extends GenericJson {
+
 	
 		@Key("CARBOHYDRATES_G")
 		public String carbs;
@@ -13,7 +14,7 @@ public class Food extends GenericJson {
 		
 		@Key("CALORIES")
 		public String calories;
-	
+		
 		@Key("_id")
 		public String id;
 		
@@ -22,7 +23,7 @@ public class Food extends GenericJson {
 	
 		@Key("ITEM")
 		public String name;
-		
+				
 		@Key("TOTALFAT_G")
 		public String fats;
 
@@ -31,5 +32,6 @@ public class Food extends GenericJson {
 		
 		@Key("ITEMTYPE")
 		public String itemType;		
-		
+
 }
+
