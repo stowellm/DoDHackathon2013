@@ -33,6 +33,7 @@
     <string name="placeholder_nutrition_ratio">0000\nout of\n0000</string>
     <string name="button_logfood">Log Food</string>
     <string name="button_logactivity">Log Activity</string>
+    <string name="button_viewday">View Timeline</string>
     
     <!-- Strings for the nutrition types -->
     <string name="calories">Calories</string>

@@ -24,7 +24,7 @@ public class MainFragment extends Fragment {
 
 	public final int PROFILE_RESULT = 0;
 
-	Button logFood, logActivity;
+	Button logFood, logActivity, viewTimeline;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -60,6 +60,8 @@ public class MainFragment extends Fragment {
 				startActivity(iFoodPicker);
 			}
 		});
+		
+		viewTimeline = (Button) v.findViewById(R.id.button_viewday);
 
 		calText = (TextView) v.findViewById(R.id.text_calories);
 		carbText = (TextView) v.findViewById(R.id.text_carbs);

@@ -16,18 +16,18 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 	private float visibleProgress;
 	private int drawColor;
 	ProgressCircleThread mThread;
-	
+
 	public ProgressCircleView(Context context, AttributeSet attributeSet) {
-	    super(context, attributeSet);
-	    getHolder().addCallback(this);
-	    visibleProgress = 0;
-	    progress = 0;
+		super(context, attributeSet);
+		getHolder().addCallback(this);
+		visibleProgress = 0;
+		progress = 0;
 	}
-	
+
 	public void setColor(int newColor) {
 		drawColor = newColor;
 	}
-	
+
 	public boolean setProgress(float newProgress) {
 		if(newProgress >= 0 && newProgress <= 100) {
 			progress = newProgress;
@@ -63,65 +63,68 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 			}
 		}
 	}
-	
+
 	@Override
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
-	    super.onMeasure(widthMeasureSpec, heightMeasureSpec);
-	    
-	    //Forces the view to be square, based off of the width in the layout
-	    this.setMeasuredDimension(
-	    		widthMeasureSpec, widthMeasureSpec);
+		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
+
+		//Forces the view to be square, based off of the width in the layout
+		this.setMeasuredDimension(
+				widthMeasureSpec, widthMeasureSpec);
 	}
 
 	@Override
 	public void draw(Canvas canvas) {
 		super.draw(canvas);
-		
-		canvas.drawColor(getResources().getColor(R.color.lightgrey));
-		
-		Paint p = new Paint();
-		p.setAntiAlias(true);
-		p.setColor(Color.DKGRAY);
-		
-		p.setStrokeWidth(20);
-		p.setStrokeCap(Paint.Cap.BUTT);
-		p.setStyle(Style.STROKE);
-		
-		//TODO - make this take a consistant amount of time to finish
-		if(visibleProgress < progress) {
-			visibleProgress += 0.4;
-		} else if(visibleProgress > progress) {
-			visibleProgress -= 0.4;
+
+		if(!isInEditMode()){
+
+			canvas.drawColor(getResources().getColor(R.color.lightgrey));
+
+			Paint p = new Paint();
+			p.setAntiAlias(true);
+			p.setColor(Color.DKGRAY);
+
+			p.setStrokeWidth(20);
+			p.setStrokeCap(Paint.Cap.BUTT);
+			p.setStyle(Style.STROKE);
+
+			//TODO - make this take a consistant amount of time to finish
+			if(visibleProgress < progress) {
+				visibleProgress += 0.4;
+			} else if(visibleProgress > progress) {
+				visibleProgress -= 0.4;
+			}
+			float degreesOut = 360 * (visibleProgress/100);
+
+			RectF r = new RectF(22.5f, 22.5f, getHolder().getSurfaceFrame().width()-22.5f, getHolder().getSurfaceFrame().width()-22.5f);
+			canvas.drawArc(r, 0, 360, false, p);
+
+			p.setColor(drawColor);
+			canvas.drawArc(r, -90, -degreesOut, false, p);
+
 		}
-		float degreesOut = 360 * (visibleProgress/100);
-		
-		RectF r = new RectF(22.5f, 22.5f, getHolder().getSurfaceFrame().width()-22.5f, getHolder().getSurfaceFrame().width()-22.5f);
-		canvas.drawArc(r, 0, 360, false, p);
-		
-		p.setColor(drawColor);
-		canvas.drawArc(r, -90, -degreesOut, false, p);
-		
 	}
-	
+
 	public class ProgressCircleThread extends Thread {
 		Canvas mCanvas;
 		SurfaceHolder mSurfaceHolder;
 		Context mContext;
 		ProgressCircleView mProgCircle;
-		
+
 		boolean isRunning;
-		
+
 		public ProgressCircleThread(SurfaceHolder sH, Context c, ProgressCircleView pCV) {
 			mSurfaceHolder = sH;
 			mContext = c;
 			mProgCircle = pCV;
 			isRunning = false;
 		}
-		
+
 		void setRunning(boolean r) {
 			isRunning = r;
 		}
-		
+
 		@Override
 		public void run() {
 			super.run();
@@ -133,6 +136,6 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 				}
 			}
 		}
-		
+
 	}
 }

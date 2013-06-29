@@ -5,13 +5,50 @@
     android:background="@color/lightgrey" >
 
     <LinearLayout
+        android:id="@+id/buttonbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="10dp"
+        android:baselineAligned="false"
+        android:orientation="horizontal"
+        android:padding="5dp" >
+
+        <Button
+            android:id="@+id/button_logactivity"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/blue_button_selector"
+            android:text="@string/button_logactivity" />
+
+        <Button
+            android:id="@+id/button_logfood"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/blue_button_selector"
+            android:text="@string/button_logfood" />
+
+        <Button
+            android:id="@+id/button_viewday"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_weight="1"
+            android:background="@drawable/blue_button_selector"
+            android:text="@string/button_viewday" />
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/bar_userinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/green_button_selector"
+        android:clickable="true"
         android:orientation="vertical"
-        android:padding="10dp"
-        android:clickable="true" >
+        android:padding="10dp" >
 
         <TextView
             android:id="@+id/text_username"
@@ -173,32 +210,11 @@
         </LinearLayout>
     </LinearLayout>
 
-    <LinearLayout
+    <ListView
+        android:id="@+id/loggedFoodList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/progressesHolder"
-        android:layout_marginTop="10dp"
-        android:baselineAligned="false"
-        android:orientation="horizontal"
-        android:padding="5dp" >
-
-        <Button
-            android:id="@+id/button_logfood"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/blue_button_selector"
-            android:text="@string/button_logfood" />
-
-        <Button
-            android:id="@+id/button_logactivity"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_weight="1"
-            android:background="@drawable/blue_button_selector"
-            android:text="@string/button_logactivity" />
-
-    </LinearLayout>
+        android:layout_above="@id/buttonbar"
+        android:layout_below="@id/progressesHolder" />
 
 </RelativeLayout>
