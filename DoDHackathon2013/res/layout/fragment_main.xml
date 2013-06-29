@@ -210,11 +210,21 @@
         </LinearLayout>
     </LinearLayout>
 
+    <TextView
+        android:id="@+id/foodlistlabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="3dp"
+        android:background="#999999"
+        android:layout_below="@id/progressesHolder" 
+        android:layout_marginTop="5dp"
+        android:text="@string/label_foodlist"
+        />
     <ListView
         android:id="@+id/loggedFoodList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/buttonbar"
-        android:layout_below="@id/progressesHolder" />
+        android:layout_below="@id/foodlistlabel" />
 
 </RelativeLayout>

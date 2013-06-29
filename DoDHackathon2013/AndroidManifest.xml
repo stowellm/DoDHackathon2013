@@ -7,9 +7,9 @@
     <uses-sdk
         android:minSdkVersion="14"
         android:targetSdkVersion="17" />
-    
-    <uses-permission android:name="android.permission.INTERNET"/>
-    
+
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -17,9 +17,9 @@
         android:theme="@style/AppTheme" >
         <activity
             android:name="dod.hackathon.combatfeeding.MainActivity"
+            android:configChanges="orientation|keyboardHidden"
             android:label="@string/app_name"
-            android:screenOrientation="sensorPortrait" 
-            android:configChanges="orientation|keyboardHidden" >
+            android:screenOrientation="sensorPortrait" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,17 +31,21 @@
             android:label="My Profile"
             android:theme="@style/DialogTheme" >
         </activity>
-        <activity 
+        <activity
             android:name="dod.hackathon.combatfeeding.FoodPicker"
             android:label="Select Food"
-            android:theme="@style/DialogTheme">
+            android:theme="@style/DialogTheme" >
         </activity>
-        <activity 
+        <activity
+            android:name="dod.hackathon.combatfeeding.TimelineActivity"
+            android:label="Timeline"
+            android:theme="@style/AppTheme" >
+        </activity>
+        <activity
             android:name="dod.hackathon.combatfeeding.ExercisePicker"
             android:label="Select Exercises"
-            android:theme="@style/DialogTheme">
+            android:theme="@style/DialogTheme" >
         </activity>
-        
     </application>
 
 </manifest>

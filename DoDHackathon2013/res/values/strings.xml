@@ -34,6 +34,7 @@
     <string name="button_logfood">Log Food</string>
     <string name="button_logactivity">Log Activity</string>
     <string name="button_viewday">View Timeline</string>
+    <string name="label_foodlist">Today\'s Foods</string>
     
     <!-- Strings for the nutrition types -->
     <string name="calories">Calories</string>
@@ -43,6 +44,33 @@
     <string name="calories_unit">kCal</string>
     <string name="grams_unit">g</string>
     
+    <!-- Strings for the timeline -->
+    <string name="time_000">0:00</string>
+    <string name="time_100">1:00</string>
+    <string name="time_200">2:00</string>
+    <string name="time_300">3:00</string>
+    <string name="time_400">4:00</string>
+    <string name="time_500">5:00</string>
+    <string name="time_600">6:00</string>
+    <string name="time_700">7:00</string>
+    <string name="time_800">8:00</string>
+    <string name="time_900">9:00</string>
+    <string name="time_1000">10:00</string>
+    <string name="time_1100">11:00</string>
+    <string name="time_1200">12:00</string>
+    <string name="time_1300">13:00</string>
+    <string name="time_1400">14:00</string>
+    <string name="time_1500">15:00</string>
+    <string name="time_1600">16:00</string>
+    <string name="time_1700">17:00</string>
+    <string name="time_1800">18:00</string>
+    <string name="time_1900">19:00</string>
+    <string name="time_2000">20:00</string>
+    <string name="time_2100">21:00</string>
+    <string name="time_2200">22:00</string>
+    <string name="time_2300">23:00</string>
+    <string name="placeholder_food">Eat Food</string>
+    <string name="placeholder_exercise">Do Exercise</string>
     <!-- Strings for picker_exercise -->
     <string name="combat">Combat</string>
     <string name="non_combat">Non-Combat</string>
