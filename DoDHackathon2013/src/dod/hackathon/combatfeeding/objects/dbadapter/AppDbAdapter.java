@@ -117,7 +117,6 @@ public class AppDbAdapter {
 		initialValues.put(KEY_PROTEINS_G, safeString((String) f.get("PROTEINS_G")));
 		initialValues.put(KEY_ITEMTYPE, safeString((String) f.get("ITEMTYPE")));
 
-
 		return mDb.insert(DATABASE_TABLE_FOODS, null, initialValues);
 	}
 	
@@ -136,5 +135,16 @@ public class AppDbAdapter {
 		}
 		return mCursor;
 	}	
+	
+	public Cursor getFoodWithKey(String id) {
+		Cursor mCursor = mDb.rawQuery("SELECT * FROM "
+				+ DATABASE_TABLE_FOODS + " WHERE _id = " + id, null);
+		
+		if (mCursor != null) {
+			mCursor.moveToFirst();
+		}
+		
+		return mCursor;
+	}
 
 }
