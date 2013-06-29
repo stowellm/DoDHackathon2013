@@ -76,7 +76,6 @@ public class FoodPicker extends Activity {
 		});
 
 		foods = getFoodsFromCache();
-		Log.e("tag", "The number of foods is: " + foods.size() + "with name: " + foods.get(0).get("ITEM"));
 		if (foods.equals(null) || foods.isEmpty()) {
 			new FetchFromKinveyTask().execute();
 		} else {
