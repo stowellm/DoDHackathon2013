@@ -2,6 +2,7 @@ package dod.hackathon.combatfeeding;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Paint.Style;
 import android.graphics.RectF;
@@ -75,9 +76,10 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 		
 		Paint p = new Paint();
 		p.setAntiAlias(true);
-		p.setColor(getResources().getColor(R.color.blueend));
+		p.setColor(Color.DKGRAY);
+		
 		p.setStrokeWidth(20);
-		p.setStrokeCap(Paint.Cap.ROUND);
+		p.setStrokeCap(Paint.Cap.BUTT);
 		p.setStyle(Style.STROKE);
 		
 		//TODO - make this take a consistant amount of time to finish
@@ -89,7 +91,11 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 		float degreesOut = 360 * (visibleProgress/100);
 		
 		RectF r = new RectF(22.5f, 22.5f, getHolder().getSurfaceFrame().width()-22.5f, getHolder().getSurfaceFrame().width()-22.5f);
+		canvas.drawArc(r, 0, 360, false, p);
+		
+		p.setColor(getResources().getColor(R.color.bluestart));
 		canvas.drawArc(r, -90, -degreesOut, false, p);
+		
 	}
 	
 	public class ProgressCircleThread extends Thread {
