@@ -5,11 +5,13 @@
     android:orientation="vertical" >
 
     <LinearLayout
+        android:id="@+id/dialog_profile_main_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="5dp"
         android:layout_marginRight="5dp"
         android:layout_marginTop="5dp"
+        android:focusableInTouchMode="true"
         android:orientation="vertical" >
 
         <TextView
@@ -85,7 +87,7 @@
             android:orientation="horizontal" >
 
             <SeekBar
-                android:id="@+id/dialog_profile_inches_feet_seeker"
+                android:id="@+id/dialog_profile_height_inches_seeker"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="10dp"
@@ -93,7 +95,7 @@
                 android:layout_weight=".2" />
 
             <TextView
-                android:id="@+id/dialog_profile_inches_feet_label"
+                android:id="@+id/dialog_profile_height_inches_label"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight=".8"
@@ -136,8 +138,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:digits="123457890."
+                android:digits="1234567890."
                 android:ems="10"
+                android:gravity="center"
+                android:imeOptions="actionDone"
                 android:inputType="phone" />
 
             <TextView
@@ -152,8 +156,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:digits="123457890."
+                android:digits="1234567890."
                 android:ems="10"
+                android:gravity="center"
+                android:imeOptions="actionDone"
                 android:inputType="phone" />
 
             <TextView
@@ -210,8 +216,10 @@
                 android:layout_height="wrap_content"
                 android:layout_marginRight="5dp"
                 android:layout_weight=".75"
-                android:digits="123467890"
+                android:digits="1234567890"
                 android:ems="10"
+                android:gravity="center"
+                android:imeOptions="actionDone"
                 android:inputType="phone" />
 
             <TextView
