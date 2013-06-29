@@ -20,6 +20,11 @@ public class MainFragment extends Fragment {
 		fatProg = (ProgressCircleView) v.findViewById(R.id.surface_fat);
 		protProg = (ProgressCircleView) v.findViewById(R.id.surface_protein);
 		
+		calProg.setProgress(45);
+		carbProg.setProgress(100);
+		fatProg.setProgress(32);
+		protProg.setProgress(82);
+		
 		return v;
 	}
 
