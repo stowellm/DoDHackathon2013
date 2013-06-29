@@ -1,11 +1,14 @@
 Preference Strings
 _____________________
 
+Make SharedPreferences with:
+mPrefs = getSharedPreferences("dod_hackathon", 0);
+
 What_It_Is :: Type :: Key_Value_To_Search_For
 
 Gender :: boolean :: gender_is_male
-Weight :: int :: my_weight
-Target Weight :: int :: target_weight
+Weight :: float :: my_weight
+Target Weight :: float :: target_weight
 User Set a Target Weight :: boolean :: target_weight_set
 Height (ft) :: int :: height_feet
 Height (in) :: int :: height_inches
