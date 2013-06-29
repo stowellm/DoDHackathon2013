@@ -5,9 +5,13 @@ import java.util.Arrays;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AdapterView.OnItemClickListener;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.SearchView.OnQueryTextListener;
@@ -33,6 +37,16 @@ public class FoodPicker extends Activity {
 		new FetchFromKinveyTask().execute();
 		
 		lv = (ListView) findViewById(R.id.picker_food_listview);
+		lv.setOnItemClickListener(new OnItemClickListener() {
+			@Override
+			public void onItemClick(AdapterView<?> adapter, View view, int pos, long l) {
+				Food f = foodAdapter.getItem(pos);
+				Intent ret = new Intent();
+				ret.putExtra("food", f);
+				setResult(RESULT_OK, ret);
+				finish();
+			}
+		});
 
 		sv = (SearchView) findViewById(R.id.picker_view_search);
 		sv.setOnQueryTextListener(new OnQueryTextListener() {
