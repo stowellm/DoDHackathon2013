@@ -25,6 +25,7 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 		ITEM_NAME, ITEM_MENU
 	};
 
+	@SuppressWarnings("unchecked")
 	public FoodAdapter(Context context, int textViewResourceId,
 			ArrayList<Food> original) {
 		super(context, textViewResourceId);
@@ -32,10 +33,9 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 		this.original = original;
 		this.context = context;
 		layoutId = textViewResourceId;
-		filtered = new ArrayList<Food>();
-
+		filtered = (ArrayList<Food>) original.clone();
 	}
-
+	
 	@Override
 	public Filter getFilter() {
 
