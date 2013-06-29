@@ -19,7 +19,7 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 	    super(context, attributeSet);
 	    getHolder().addCallback(this);
 	    visibleProgress = 0;
-	    progress = 75;
+	    progress = 0;
 	}
 	
 	public boolean setProgress(float newProgress) {

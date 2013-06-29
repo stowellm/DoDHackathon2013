@@ -5,11 +5,13 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import dod.hackathon.combatfeeding.objects.Day;
 
 public class MainFragment extends Fragment {
 
 	ProgressCircleView calProg, carbProg, fatProg, protProg;
-
+	Day thisDay;
+	
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 		// Inflate the layout for this fragment
@@ -20,10 +22,7 @@ public class MainFragment extends Fragment {
 		fatProg = (ProgressCircleView) v.findViewById(R.id.surface_fat);
 		protProg = (ProgressCircleView) v.findViewById(R.id.surface_protein);
 		
-		calProg.setProgress(45);
-		carbProg.setProgress(100);
-		fatProg.setProgress(32);
-		protProg.setProgress(82);
+		
 		
 		return v;
 	}
