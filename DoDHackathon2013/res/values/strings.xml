@@ -19,6 +19,13 @@
    	<string name="my_target">Target Weight</string>
    	<string name="age">Age</string>
    	<string name="yrs">yrs.</string>
+   	
+   	<!-- Placeholder strings for list_element_food -->
+  	<string name="placeholder_food_title">Food Name</string>
+  	<string name="placeholder_calories">cal 350</string>
+  	<string name="placeholder_carb">carb 20</string>
+  	<string name="placeholder_fat">fat 5</string>
+  	<string name="placeholder_protein">pro 10</string>
   	
     <!-- Strings for the main day view fragment -->
     <string name="placeholder_username">John Doe</string>

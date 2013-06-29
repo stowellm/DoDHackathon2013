@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/list_element_food_main_layout"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/list_element_food_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/placeholder_food_title"
+        android:textSize="18sp"
+        android:background="#DDDDDD"
+        android:padding="7dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <TextView
+            android:id="@+id/list_element_food_calories"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_calories"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@color/calories_color" />
+
+        <TextView
+            android:id="@+id/list_element_food_carbs"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_carb"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@color/carbs_color" />
+
+        <TextView
+            android:id="@+id/list_element_food_fat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_fat"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@color/fat_color" />
+
+        <TextView
+            android:id="@+id/list_element_food_protein"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/placeholder_protein"
+            android:layout_weight="1"
+            android:textSize="14sp"
+            android:background="@color/protein_color" />
+
+    </LinearLayout>
+
+</LinearLayout>
