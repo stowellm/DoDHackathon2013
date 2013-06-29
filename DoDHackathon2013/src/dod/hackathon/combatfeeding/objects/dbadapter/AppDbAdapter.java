@@ -16,7 +16,7 @@ public class AppDbAdapter {
 	public static final String KEY_ITEMTYPE = "ITEMTYPE";
 	public static final String KEY_RATION = "RATION";
 	public static final String KEY_CARBOHYDRATES_G = "CARBOHYDRATES_G";
-	public static final String KEY_PROTEINS_G = "PROTEINS_G";
+	public static final String KEY_PROTEINS_G = "PROTEIN_G";
 	public static final String KEY_TOTALFAT_G = "TOTALFAT_G";
 	public static final String KEY_CALORIES = "CALORIES";
 
@@ -114,7 +114,7 @@ public class AppDbAdapter {
 		initialValues.put(KEY_RATION, safeString((String) f.get("RATION")));
 		initialValues.put(KEY_ITEM, safeString((String) f.get("ITEM")));
 		initialValues.put(KEY_TOTALFAT_G, safeString((String) f.get("TOTALFAT_G")));
-		initialValues.put(KEY_PROTEINS_G, safeString((String) f.get("PROTEINS_G")));
+		initialValues.put(KEY_PROTEINS_G, safeString((String) f.get("PROTEIN_G")));
 		initialValues.put(KEY_ITEMTYPE, safeString((String) f.get("ITEMTYPE")));
 
 		return mDb.insert(DATABASE_TABLE_FOODS, null, initialValues);
@@ -138,7 +138,7 @@ public class AppDbAdapter {
 	
 	public Cursor getFoodWithKey(String id) {
 		Cursor mCursor = mDb.rawQuery("SELECT * FROM "
-				+ DATABASE_TABLE_FOODS + " WHERE _id = " + id, null);
+				+ DATABASE_TABLE_FOODS + " WHERE " + KEY_ROWID + " = \"" + id + "\"", null);
 		
 		if (mCursor != null) {
 			mCursor.moveToFirst();

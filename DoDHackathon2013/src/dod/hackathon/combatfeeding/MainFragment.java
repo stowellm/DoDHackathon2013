@@ -1,7 +1,5 @@
 package dod.hackathon.combatfeeding;
 
-import java.util.ArrayList;
-
 import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -14,6 +12,7 @@ import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -24,11 +23,10 @@ import dod.hackathon.combatfeeding.objects.dbadapter.AppDbAdapter;
 
 public class MainFragment extends Fragment {
 
-	RelativeLayout topBarLayout;
+	LinearLayout topBarLayout, gearLayout;
 	ProgressCircleView calProg, carbProg, fatProg, protProg;
 	TextView userName, loadType, calText, carbText, fatText, protText;
 	ListView loggedFoodList;
-	ImageButton btnGear;
 	
 	// Variables retrieved from exercises
 	String[] exerciseNames;
@@ -68,7 +66,7 @@ public class MainFragment extends Fragment {
 
 		loggedFoodList = (ListView) v.findViewById(R.id.loggedFoodList);
 		
-		topBarLayout = (RelativeLayout) v.findViewById(R.id.bar_userinfo);
+		topBarLayout = (LinearLayout) v.findViewById(R.id.bar_userinfo);
 		topBarLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -77,8 +75,8 @@ public class MainFragment extends Fragment {
 			}
 		});
 
-		btnGear = (ImageButton) v.findViewById(R.id.btn_gear);
-		btnGear.setOnClickListener(new OnClickListener() {
+		gearLayout = (LinearLayout) v.findViewById(R.id.bar_gear);
+		gearLayout.setOnClickListener(new OnClickListener() {
 
 			@Override
 			public void onClick(View v) {
@@ -177,7 +175,10 @@ public class MainFragment extends Fragment {
 			setupViews();
 		} else if(requestCode == RESULT_FOODPICKED) {
 			String foodId = data.getStringExtra("food_id");
-			//thisDay.addFood(resFood);
+			Food f = getFoodFromCacheWithKey(foodId);
+			if(f != null) {
+				thisDay.addFood(f);
+			}
 			setupViews();
 		} else if(requestCode == RESULT_GEAR) {
 			
