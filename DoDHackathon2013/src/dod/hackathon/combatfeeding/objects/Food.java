@@ -1,10 +1,14 @@
 package dod.hackathon.combatfeeding.objects;
 
+import java.io.Serializable;
+
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 
-public class Food extends GenericJson {
+public class Food extends GenericJson implements Serializable {
 		
+	private static final long serialVersionUID = 3804307861108745651L;
+
 		@Key("ITEM")
 		private String name;
 		

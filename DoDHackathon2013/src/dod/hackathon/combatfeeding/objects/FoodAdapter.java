@@ -1,6 +1,7 @@
 package dod.hackathon.combatfeeding.objects;
 
 import java.util.ArrayList;
+import java.util.Locale;
 
 import android.content.Context;
 import android.util.Log;
@@ -32,10 +33,11 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 
 		this.original = original;
 		this.context = context;
+		sortType = SortType.ITEM_NAME;
 		layoutId = textViewResourceId;
 		filtered = (ArrayList<Food>) original.clone();
 	}
-	
+
 	@Override
 	public Filter getFilter() {
 
@@ -58,16 +60,24 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 						// Sort by sort type
 						switch (sortType) {
 						case ITEM_NAME:
-							if (((String) food.get("ITEM"))
-									.contains(charSequence)) {
-								newFiltered.add(food);
+							if ((String) food.get("ITEM") != null) {
+								if (((String) food.get("ITEM")).toLowerCase(
+										Locale.US).contains(
+										charSequence.toString().toLowerCase(
+												Locale.US))) {
+									newFiltered.add(food);
+								}
 							}
 							break;
 
 						case ITEM_MENU:
-							if (((String) food.get("MENU"))
-									.contains(charSequence)) {
-								newFiltered.add(food);
+							if ((String) food.get("MENU") != null) {
+								if (((String) food.get("MENU")).toLowerCase(
+										Locale.US).contains(
+										charSequence.toString().toLowerCase(
+												Locale.US))) {
+									newFiltered.add(food);
+								}
 							}
 							break;
 
@@ -90,6 +100,7 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 			protected void publishResults(CharSequence charSequence,
 					FilterResults filterResults) {
 				filtered = (ArrayList<Food>) filterResults.values;
+
 				notifyDataSetChanged();
 			}
 
@@ -128,18 +139,22 @@ public class FoodAdapter extends ArrayAdapter<Food> implements Filterable {
 			view = inflater.inflate(layoutId, parent, false);
 		}
 
-		TextView name = (TextView) view.findViewById(R.id.list_element_food_title);
-		TextView cal = (TextView) view.findViewById(R.id.list_element_food_calories);
-		TextView carb = (TextView) view.findViewById(R.id.list_element_food_carbs);
+		TextView name = (TextView) view
+				.findViewById(R.id.list_element_food_title);
+		TextView cal = (TextView) view
+				.findViewById(R.id.list_element_food_calories);
+		TextView carb = (TextView) view
+				.findViewById(R.id.list_element_food_carbs);
 		TextView fat = (TextView) view.findViewById(R.id.list_element_food_fat);
-		TextView prot = (TextView) view.findViewById(R.id.list_element_food_protein);
-				
+		TextView prot = (TextView) view
+				.findViewById(R.id.list_element_food_protein);
+
 		name.setText("" + filtered.get(position).get("ITEM"));
 		cal.setText("cal " + filtered.get(position).get("CALORIES"));
 		carb.setText("carb " + filtered.get(position).get("CARBOHYDRATES_G"));
 		fat.setText("fat " + filtered.get(position).get("TOTALFAT_G"));
 		prot.setText("pro " + filtered.get(position).get("PROTEIN_G"));
-		
+
 		return view;
 
 	}
