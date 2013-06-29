@@ -6,6 +6,7 @@ import java.util.Arrays;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
@@ -23,6 +24,8 @@ import dod.hackathon.combatfeeding.objects.ExerciseAdapter;
 public class ExercisePicker extends Activity {
 
 	private ListView listCombat, listNonCombat;
+	
+	private int gearWeight;
 
 	private ExerciseAdapter combatAdapter, nonCombatAdapter;
 	private ArrayList<Exercise> exercises, combatExercises, nonCombatExercises;
@@ -33,6 +36,9 @@ public class ExercisePicker extends Activity {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.picker_exercise);
+		
+		Bundle extras = getIntent().getExtras();
+		gearWeight = extras.getInt("gear_weight");
 
 		listCombat = (ListView) findViewById(R.id.picker_exercise_combat_list);
 		listNonCombat = (ListView) findViewById(R.id.picker_exercise_noncombat_list);
@@ -73,10 +79,6 @@ public class ExercisePicker extends Activity {
 				Intent iReturn = new Intent();
 				iReturn.putExtra("exercise_names", exercisesReturn);
 				iReturn.putExtra("exercises_times", timesReturn);
-
-				for (int i = 0; i < exercisesReturn.length; i++) {
-					Log.w("tag", exercisesReturn[i] + ", " + timesReturn[i]);
-				}
 
 				setResult(RESULT_OK, iReturn);
 				finish();
@@ -207,14 +209,17 @@ public class ExercisePicker extends Activity {
 					nonCombatExercises.add(e);
 				}
 			}
+			
+			SharedPreferences mPrefs = getSharedPreferences("dod_hackathon", 0);
+			float userWeight = mPrefs.getFloat("my_weight", -1.0f);
 
 			combatAdapter = new ExerciseAdapter(ExercisePicker.this,
-					R.layout.list_element_exercise, combatExercises);
+					R.layout.list_element_exercise, combatExercises, gearWeight, userWeight);
 
 			listCombat.setAdapter(combatAdapter);
 
 			nonCombatAdapter = new ExerciseAdapter(ExercisePicker.this,
-					R.layout.list_element_exercise, nonCombatExercises);
+					R.layout.list_element_exercise, nonCombatExercises, gearWeight, userWeight);
 
 			listNonCombat.setAdapter(nonCombatAdapter);
 		}

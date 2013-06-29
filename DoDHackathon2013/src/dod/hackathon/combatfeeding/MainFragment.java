@@ -24,11 +24,26 @@ public class MainFragment extends Fragment {
 	ListView loggedFoodList;
 	ImageButton btnGear;
 	
+	// Variables retrieved from exercises
+	String[] exerciseNames;
+	int[] exerciseTimes;
+	int caloriesBurnedFromExercise;
+	
+	// Variables retrieved from gear
+	int gearWeight;
+	
+	// Variables retrieved from food
+	int calories;
+	int carbs;
+	int fat;
+	int protein;
+	
 	Day thisDay;
 
 	public final int RESULT_PROFILE = 0;
 	public final int RESULT_FOODPICKED = 1;
 	public final int RESULT_GEAR = 2;
+	public final int RESULT_EXERCISE = 3;
 
 	Button logFood, logActivity, viewTimeline;
 	
@@ -88,7 +103,8 @@ public class MainFragment extends Fragment {
 			@Override
 			public void onClick(View arg0) {
 				Intent iExercisePicker = new Intent(getActivity(), ExercisePicker.class);
-				startActivity(iExercisePicker);
+				iExercisePicker.putExtra("gear_weight", gearWeight);
+				startActivityForResult(iExercisePicker, RESULT_EXERCISE);
 			}
 		});
 		
@@ -154,6 +170,9 @@ public class MainFragment extends Fragment {
 			setupViews();
 		} else if(requestCode == RESULT_GEAR) {
 			
+		} else if (requestCode == RESULT_EXERCISE) {
+			exerciseNames = data.getStringArrayExtra("exercise_names");
+			exerciseTimes = data.getIntArrayExtra("exercise_times");
 		}
 	}
 
