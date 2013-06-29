@@ -25,6 +25,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -37,8 +38,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -57,6 +57,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -69,8 +70,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -89,6 +89,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -101,8 +102,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -121,6 +121,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -133,8 +134,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -153,6 +153,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -165,8 +166,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -185,6 +185,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -197,8 +198,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -217,6 +217,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -229,8 +230,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -249,6 +249,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -261,8 +262,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -281,6 +281,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -293,8 +294,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -313,6 +313,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -325,8 +326,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -345,6 +345,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -357,8 +358,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -377,6 +377,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -389,8 +390,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -409,6 +409,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -421,8 +422,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -441,6 +441,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -453,8 +454,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -473,6 +473,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -485,8 +486,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -505,6 +505,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -517,8 +518,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -537,6 +537,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -549,8 +550,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -569,6 +569,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -581,8 +582,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -601,6 +601,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -613,8 +614,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -633,6 +633,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -645,8 +646,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -665,6 +665,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -677,8 +678,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -697,20 +697,20 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
                 android:src="@drawable/timeline_middle" />
 
             <TextView
-                android:id="@+id/timeslot_2200"
+                android:id="@+id/timeslot_2100"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -729,6 +729,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight=".5"
@@ -741,8 +742,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_food"
-                android:textColor="@color/greenend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
 
@@ -761,6 +761,7 @@
                 android:textSize="20sp" />
 
             <ImageView
+                android:contentDescription="@string/placeholder_content_description"
                 android:layout_width="0dp"
                 android:layout_height="30dp"
                 android:layout_weight="0.5"
@@ -773,8 +774,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_weight="4"
                 android:gravity="center_horizontal"
-                android:text="@string/placeholder_exercise"
-                android:textColor="@color/blueend"
+                android:text="@string/placeholder_blank_string"
                 android:textSize="20sp" />
         </LinearLayout>
     </LinearLayout>

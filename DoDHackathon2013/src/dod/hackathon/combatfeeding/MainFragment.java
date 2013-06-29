@@ -122,6 +122,8 @@ public class MainFragment extends Fragment {
 			@Override
 			public void onClick(View v) {
 				Intent iTimeline = new Intent(getActivity(), TimelineActivity.class);
+				iTimeline.putExtra("exercise_names", exerciseNames);
+				iTimeline.putExtra("exercise_times", exerciseTimes);
 				startActivity(iTimeline);
 			}
 		});
@@ -186,6 +188,7 @@ public class MainFragment extends Fragment {
 			if (data != null) {
 				exerciseNames = data.getStringArrayExtra("exercise_names");
 				exerciseTimes = data.getIntArrayExtra("exercise_times");
+				for (int i = 0; i < exerciseTimes.length; i++) Log.w("tag", "Time: " + exerciseTimes[i]);
 			}
 		}
 	}
