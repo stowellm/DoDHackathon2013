@@ -15,10 +15,10 @@ import dod.hackathon.combatfeeding.R;
 
 public class ExerciseAdapter extends ArrayAdapter<Exercise> {
 
-	private ArrayList<Exercise> exercises;
+	public ArrayList<Exercise> exercises;
 	private Context context;
 	private int layoutId;
-	private ArrayList<Integer> placeholder;
+	public ArrayList<Integer> placeholder;
 
 	public ExerciseAdapter(Context context, int textViewResourceId,
 			ArrayList<Exercise> exercises) {

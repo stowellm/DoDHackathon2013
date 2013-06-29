@@ -37,6 +37,11 @@
             android:theme="@style/DialogTheme" >
         </activity>
         <activity
+            android:name="dod.hackathon.combatfeeding.GearPicker"
+            android:label="Select Gear"
+            android:theme="@style/DialogTheme" >
+        </activity>
+        <activity
             android:name="dod.hackathon.combatfeeding.TimelineActivity"
             android:label="Timeline"
             android:theme="@style/AppTheme" >

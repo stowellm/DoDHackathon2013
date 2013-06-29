@@ -41,28 +41,45 @@
             android:text="@string/button_viewday" />
     </LinearLayout>
 
-    <LinearLayout
+    <RelativeLayout
         android:id="@+id/bar_userinfo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/green_button_selector"
         android:clickable="true"
-        android:orientation="vertical"
         android:padding="10dp" >
 
-        <TextView
-            android:id="@+id/text_username"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/placeholder_username"
-            android:textSize="18sp" />
+            android:layout_alignParentLeft="true"
+            android:orientation="vertical" >
 
-        <TextView
-            android:id="@+id/text_loadtype"
+            <TextView
+                android:id="@+id/text_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_username"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/text_loadtype"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/placeholder_loadtype" />
+        </LinearLayout>
+
+        <ImageButton
+            android:id="@+id/btn_gear"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/placeholder_loadtype" />
-    </LinearLayout>
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_gravity="right|center_vertical"
+            android:background="@null"
+            android:src="@drawable/btn_gear" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/progressesHolder"
@@ -214,12 +231,12 @@
         android:id="@+id/foodlistlabel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="3dp"
-        android:background="#999999"
-        android:layout_below="@id/progressesHolder" 
+        android:layout_below="@id/progressesHolder"
         android:layout_marginTop="5dp"
-        android:text="@string/label_foodlist"
-        />
+        android:background="#999999"
+        android:padding="3dp"
+        android:text="@string/label_foodlist" />
+
     <ListView
         android:id="@+id/loggedFoodList"
         android:layout_width="match_parent"

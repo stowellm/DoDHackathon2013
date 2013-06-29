@@ -45,7 +45,6 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
             android:focusableInTouchMode="true"
             android:orientation="vertical"
             android:padding="5dp" >
@@ -55,7 +54,6 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:layout_marginTop="20dp"
                 android:text="@string/name"
                 android:textSize="18sp" />
 
