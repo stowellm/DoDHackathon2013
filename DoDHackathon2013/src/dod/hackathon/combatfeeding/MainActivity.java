@@ -1,6 +1,7 @@
 package dod.hackathon.combatfeeding;
 
 import android.app.Activity;
+import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Intent;
@@ -8,7 +9,6 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
-import android.view.MenuItem;
 
 import com.kinvey.android.Client;
 import com.kinvey.android.callback.KinveyPingCallback;
@@ -74,8 +74,16 @@ public class MainActivity extends Activity {
 		getMenuInflater().inflate(R.menu.main, menu);
 		return true;
 	}
-
+	
 	@Override
+	public void onActivityResult(int requestCode, int resultCode, Intent data) {
+		super.onActivityResult(requestCode, resultCode, data);
+		
+		Fragment fragment = getFragmentManager().findFragmentById(R.id.mainholder);
+	    fragment.onActivityResult(requestCode, resultCode, data);
+	}
+
+	/*@Override
 	public boolean onOptionsItemSelected(MenuItem item) {
 		switch (item.getItemId()) {
 		case R.id.action_profile:
@@ -84,6 +92,6 @@ public class MainActivity extends Activity {
 			return true;
 		}
 		return false;
-	}
+	}*/
 
 }

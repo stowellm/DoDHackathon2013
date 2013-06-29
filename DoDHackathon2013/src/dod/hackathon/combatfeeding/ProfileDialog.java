@@ -23,7 +23,7 @@ public class ProfileDialog extends Activity {
 	private TextView feetLabel, inchesLabel, myWeightLabel, targetWeightLabel,
 			myTargetLbs;
 	private CheckBox targetWeightCheck;
-	private EditText weightLbs, targetLbs, age;
+	private EditText nameBox, weightLbs, targetLbs, age;
 
 	private SharedPreferences mPrefs;
 	private SharedPreferences.Editor mEdit;
@@ -39,6 +39,9 @@ public class ProfileDialog extends Activity {
 		LinearLayout ll = (LinearLayout) findViewById(R.id.dialog_profile_main_layout);
 		ll.requestFocus();
 
+		nameBox = (EditText) findViewById(R.id.dialog_profile_user_name);
+		nameBox.setText(mPrefs.getString("my_name", "John Doe"));
+		
 		male = (Button) findViewById(R.id.dialog_profile_male);
 		male.setOnClickListener(new OnClickListener() {
 			@Override
@@ -95,6 +98,14 @@ public class ProfileDialog extends Activity {
 			public void onClick(View v) {
 				boolean ready = true;
 
+				if(nameBox.getText().toString().length() == 0) {
+					nameBox.setError("Please enter a name");
+					ready = false;
+				} else {
+					nameBox.setError(null);
+					mEdit.putString("my_name", nameBox.getText().toString()).commit();
+				}
+				
 				if (male.getAlpha() == 1.0f)
 					mEdit.putBoolean("gender_is_male", true).commit();
 				else
