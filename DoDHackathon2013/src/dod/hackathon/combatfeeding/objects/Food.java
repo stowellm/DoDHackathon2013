@@ -33,31 +33,3 @@ public class Food extends GenericJson {
 		private float calories;
 
 }
-	
-	/*private boolean wasFetched = false;
-	private FoodEntity food;
-
-	// Get whether the food has been successfully fetched.
-	public boolean wasFetched() {
-		return wasFetched;
-	}
-	
-	public Food(Client kinveyClient, String id) {
-		
-		food = new FoodEntity();
-	    
-	    AsyncAppData<FoodEntity> myFoods = kinveyClient.appData("foods", FoodEntity.class);
-	    myFoods.getEntity(id, new KinveyClientCallback<FoodEntity>() {
-	    	
-	    	@Override
-	    	public void onSuccess(FoodEntity result) {
-	    		wasFetched = true;
-	    	}
-	    	
-	    	@Override
-	    	public void onFailure(Throwable error) {
-	    		wasFetched = false;
-	    	}
-	    	
-	    });
-	}*/
