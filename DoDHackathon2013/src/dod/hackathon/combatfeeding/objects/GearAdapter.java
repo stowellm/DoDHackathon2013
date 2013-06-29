@@ -63,7 +63,7 @@ public class GearAdapter extends ArrayAdapter<Gear> {
 		mClass.setText("" + gearList.get(position).get("CLASS"));
 		TextView weight = (TextView) view
 				.findViewById(R.id.label_weight);
-		weight.setText("" + gearList.get(position).get("WEAPON LOADED (LBS)"));
+		weight.setText(gearList.get(position).get("WEAPON LOADED (LBS)") +" lbs");
 
 		return view;
 
