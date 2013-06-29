@@ -69,8 +69,9 @@
     <string name="time_2100">21:00</string>
     <string name="time_2200">22:00</string>
     <string name="time_2300">23:00</string>
-    <string name="placeholder_food">Eat Food</string>
-    <string name="placeholder_exercise">Do Exercise</string>
+    <string name="placeholder_blank_string"></string>
+    <string name="placeholder_content_description"></string>
+    
     <!-- Strings for picker_exercise -->
     <string name="combat">Combat</string>
     <string name="non_combat">Non-Combat</string>

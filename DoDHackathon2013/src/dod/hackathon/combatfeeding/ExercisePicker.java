@@ -78,7 +78,9 @@ public class ExercisePicker extends Activity {
 
 				Intent iReturn = new Intent();
 				iReturn.putExtra("exercise_names", exercisesReturn);
-				iReturn.putExtra("exercises_times", timesReturn);
+				iReturn.putExtra("exercise_times", timesReturn);
+				
+				for (int i = 0; i < timesReturn.length; i++) Log.w("tag", "Time: " + timesReturn[i]);
 
 				setResult(RESULT_OK, iReturn);
 				finish();
