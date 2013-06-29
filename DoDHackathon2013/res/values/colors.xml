@@ -17,9 +17,9 @@
     <color name="blueend_selected">#255CB3</color>
     
     <!-- Used for carlorie, carb, fat, and protein coloring -->
-    <color name="calories_color">#FFCC66</color>
-    <color name="carbs_color">#99FF66</color>
-    <color name="fat_color">#CCCCFF</color>
-    <color name="protein_color">#EEBBEE</color>
+    <color name="calories_color">#FFA600</color>
+    <color name="carbs_color">#73FF00</color>
+    <color name="fat_color">#00B7FF</color>
+    <color name="protein_color">#FF00D9</color>
     
 </resources>

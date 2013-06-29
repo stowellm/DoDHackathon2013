@@ -1,292 +1,299 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:layout_height="match_parent" >
 
     <LinearLayout
-        android:id="@+id/dialog_profile_main_layout"
+        style="?android:attr/buttonBarStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="5dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginTop="5dp"
-        android:focusableInTouchMode="true"
-        android:orientation="vertical"
-        android:padding="5dp" >
+        android:layout_alignParentBottom="true"
+        android:orientation="horizontal" 
+        android:id="@+id/buttonbar">
 
-        <TextView
+        <Button
+            android:id="@+id/dialog_profile_cancel"
+            style="?android:attr/buttonBarButtonStyle"
             android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/cancel" />
+
+        <Button
+            android:id="@+id/dialog_profile_ok"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@android:string/ok" />
+    </LinearLayout>
+    <View
+        android:id="@+id/buttonbardivider"
+        android:layout_width="fill_parent"
+        android:layout_height="1dp"
+        android:layout_above="@id/buttonbar"
+        android:background="?android:attr/dividerVertical" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" 
+        android:layout_above="@id/buttonbardivider">
+
+        <LinearLayout
+            android:id="@+id/dialog_profile_main_layout"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/name"
-            android:textSize="18sp" />
+            android:layout_marginTop="5dp"
+            android:focusableInTouchMode="true"
+            android:orientation="vertical"
+            android:padding="5dp" >
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
-            android:orientation="horizontal" >
-
-            <EditText
-                android:id="@+id/dialog_profile_user_name"
-                android:layout_width="match_parent"
+            <TextView
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
                 android:layout_marginRight="5dp"
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="textPersonName" >
-
-                <requestFocus />
-            </EditText>
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/gender"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="20dp"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" >
-
-            <Button
-                android:id="@+id/dialog_profile_male"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/male" />
-
-            <Button
-                android:id="@+id/dialog_profile_female"
-                style="?android:attr/buttonBarButtonStyle"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/female" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/height"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" >
-
-            <SeekBar
-                android:id="@+id/dialog_profile_height_feet_seeker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight=".2" />
-
-            <TextView
-                android:id="@+id/dialog_profile_height_feet_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight=".8"
-                android:text="@string/ft"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="5dp"
-            android:orientation="horizontal" >
-
-            <SeekBar
-                android:id="@+id/dialog_profile_height_inches_seeker"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="10dp"
-                android:layout_marginRight="10dp"
-                android:layout_weight=".2" />
-
-            <TextView
-                android:id="@+id/dialog_profile_height_inches_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight=".8"
-                android:text="@string/in"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="20dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="20dp"
-                android:text="@string/weight"
+                android:layout_marginTop="20dp"
+                android:text="@string/name"
                 android:textSize="18sp" />
 
-            <CheckBox
-                android:id="@+id/dialog_profile_target_weight_checkbox"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="right|center_vertical"
-                android:text="@string/target_weight" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
-            android:orientation="horizontal" >
-
-            <EditText
-                android:id="@+id/dialog_profile_my_weight"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:digits="1234567890."
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="phone" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginRight="25dp"
-                android:text="@string/lbs"
-                android:textSize="15sp" />
-
-            <EditText
-                android:id="@+id/dialog_profile_my_target"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:digits="1234567890."
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="phone" />
-
-            <TextView
-                android:id="@+id/dialog_profile_my_target_lbs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/lbs"
-                android:textSize="15sp" />
-        </LinearLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:orientation="horizontal" >
-
-            <TextView
-                android:id="@+id/dialog_profile_my_weight_label"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/my_weight" />
-
-            <TextView
-                android:id="@+id/dialog_profile_my_target_label"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:text="@string/my_target" />
-        </LinearLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="5dp"
-            android:layout_marginRight="5dp"
-            android:layout_marginTop="20dp"
-            android:text="@string/age"
-            android:textSize="18sp" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="15dp"
-            android:layout_marginRight="5dp"
-            android:orientation="horizontal" >
-
-            <EditText
-                android:id="@+id/dialog_profile_my_age"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
                 android:layout_marginRight="5dp"
-                android:layout_weight=".75"
-                android:digits="1234567890"
-                android:ems="10"
-                android:imeOptions="actionDone"
-                android:inputType="phone" />
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/dialog_profile_user_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:inputType="textPersonName" >
+
+                    <requestFocus />
+                </EditText>
+            </LinearLayout>
 
             <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/gender"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                style="?android:attr/buttonBarStyle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight=".25"
-                android:text="@string/yrs"
-                android:textSize="15sp" />
-        </LinearLayout>
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
 
-        <View
-            android:layout_width="fill_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="25dp"
-            android:background="?android:attr/dividerVertical" />
+                <Button
+                    android:id="@+id/dialog_profile_male"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/male" />
 
-        <LinearLayout
-            style="?android:attr/buttonBarStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal" >
+                <Button
+                    android:id="@+id/dialog_profile_female"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="@string/female" />
+            </LinearLayout>
 
-            <Button
-                android:id="@+id/dialog_profile_cancel"
-                style="?android:attr/buttonBarButtonStyle"
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@android:string/cancel" />
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:text="@string/height"
+                android:textSize="18sp" />
 
-            <Button
-                android:id="@+id/dialog_profile_ok"
-                style="?android:attr/buttonBarButtonStyle"
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <SeekBar
+                    android:id="@+id/dialog_profile_height_feet_seeker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight=".2" />
+
+                <TextView
+                    android:id="@+id/dialog_profile_height_feet_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8"
+                    android:text="@string/ft"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal" >
+
+                <SeekBar
+                    android:id="@+id/dialog_profile_height_inches_seeker"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_weight=".2" />
+
+                <TextView
+                    android:id="@+id/dialog_profile_height_inches_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".8"
+                    android:text="@string/in"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="20dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="20dp"
+                    android:text="@string/weight"
+                    android:textSize="18sp" />
+
+                <CheckBox
+                    android:id="@+id/dialog_profile_target_weight_checkbox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="right|center_vertical"
+                    android:text="@string/target_weight" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/dialog_profile_my_weight"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:digits="1234567890."
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:text="@string/lbs"
+                    android:textSize="15sp" />
+
+                <EditText
+                    android:id="@+id/dialog_profile_my_target"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:digits="1234567890."
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone" />
+
+                <TextView
+                    android:id="@+id/dialog_profile_my_target_lbs"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/lbs"
+                    android:textSize="15sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+                <TextView
+                    android:id="@+id/dialog_profile_my_weight_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/my_weight" />
+
+                <TextView
+                    android:id="@+id/dialog_profile_my_target_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="@string/my_target" />
+            </LinearLayout>
+
+            <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@android:string/ok" />
-        </LinearLayout>
-    </LinearLayout>
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:layout_marginTop="10dp"
+                android:text="@string/age"
+                android:textSize="18sp" />
 
-</ScrollView>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="15dp"
+                android:layout_marginRight="5dp"
+                android:orientation="horizontal" >
+
+                <EditText
+                    android:id="@+id/dialog_profile_my_age"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_weight=".75"
+                    android:digits="1234567890"
+                    android:ems="10"
+                    android:imeOptions="actionDone"
+                    android:inputType="phone" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight=".25"
+                    android:text="@string/yrs"
+                    android:textSize="15sp" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+</RelativeLayout>
