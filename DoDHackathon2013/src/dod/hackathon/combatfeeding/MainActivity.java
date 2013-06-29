@@ -12,10 +12,9 @@ import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
 
 public class MainActivity extends Activity {
-	
+
 	private Client mKinveyClient;
 	private String TAG = "COMBATFEED";
-
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {

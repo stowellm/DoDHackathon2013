@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     
+    <!-- Used for fragment backgrounds -->
+    <color name="lightgrey">#DBDBDB</color>
+    
+    <!-- Used for state-selector green button -->
     <color name="greenstart">#8DE034</color>
     <color name="greenend">#70B329</color>
     <color name="greenstart_selected">#609923</color>
     <color name="greenend_selected">#50801D</color>
+    
+    <!-- Used for state-selector blue button -->
+    <color name="bluestart">#3683FF</color>
+    <color name="blueend">#3076E6</color>
+    <color name="bluestart_selected">#2B69CC</color>
+    <color name="blueend_selected">#255CB3</color>
     
 </resources>
