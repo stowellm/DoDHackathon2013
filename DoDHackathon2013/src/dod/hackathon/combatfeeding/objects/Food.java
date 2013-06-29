@@ -17,10 +17,10 @@ public class Food {
 	
 	public Food(Client kinveyClient) {
 		
-	    food = new FoodEntity();
+	   /* food = new FoodEntity();
 	    
 	    AsyncAppData<FoodEntity> myFoods = kinveyClient.appData("events", FoodEntity.class);
-	    myFoods.getEntity(eventId, new KinveyClientCallback<FoodEntity>() {
+	    myFoods.getEntity(foodId, new KinveyClientCallback<FoodEntity>() {
 	    	
 	    	@Override
 	    	public void onSuccess(FoodEntity result) {
@@ -32,7 +32,7 @@ public class Food {
 	    		wasFetched = false;
 	    	}
 	    	
-	    });
+	    });*/
 	}
 
 }
