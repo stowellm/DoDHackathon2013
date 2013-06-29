@@ -14,16 +14,18 @@ import dod.hackathon.combatfeeding.api.RestAPI;
 
 public class MainActivity extends Activity {
 	
-	public RestAPI rapi;
-	Client mKinveyClient;
-	final String TAG = "COMBATFEED";
+
+
+
+
+	private Client mKinveyClient;
+	private String TAG = "COMBATFEED";
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
-		rapi = new RestAPI();
 		
 		//Create the Kinvey client
 		mKinveyClient = new Client.Builder("kid_VVIhP46N0f", "6601c902d5924ee29edcdbf07e445850",

@@ -1,0 +1,43 @@
+********************************************************************************************
+
+Menus/surveys available for MRE/FSR by year:
+
+MRE (meal, ready to eat)
+
+	2012 prod
+		24 menus
+	2013 prod
+		24 menus
+
+FSR (first strike ration)
+
+	2008
+		3 menus
+	2012
+		9 menus
+
+MCW/LRP
+	2008
+		12 menus
+
+Note: don't worry about menu items beyond the #'s above.
+
+
+********************************************************************************************
+
+Application Objectives:
+
+-display complete nutritional profiles for each menu (e.g. MRE:1-24) by production year
+
+-display complete info each compenent in each menu
+
+-ability to edit a menu, delete/add components from the food database
+
+-ability to generate  new menu from scratch utilizing all foods avail in database
+
+-link to the appropriate ration fact sheets
+
+-link to army regulation-25 (AR40-25)
+
+
+********************************************************************************************
