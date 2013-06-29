@@ -14,6 +14,7 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 
 	private float progress;
 	private float visibleProgress;
+	private int drawColor;
 	ProgressCircleThread mThread;
 	
 	public ProgressCircleView(Context context, AttributeSet attributeSet) {
@@ -21,6 +22,10 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 	    getHolder().addCallback(this);
 	    visibleProgress = 0;
 	    progress = 0;
+	}
+	
+	public void setColor(int newColor) {
+		drawColor = newColor;
 	}
 	
 	public boolean setProgress(float newProgress) {
@@ -93,7 +98,7 @@ public class ProgressCircleView extends SurfaceView implements SurfaceHolder.Cal
 		RectF r = new RectF(22.5f, 22.5f, getHolder().getSurfaceFrame().width()-22.5f, getHolder().getSurfaceFrame().width()-22.5f);
 		canvas.drawArc(r, 0, 360, false, p);
 		
-		p.setColor(getResources().getColor(R.color.bluestart));
+		p.setColor(drawColor);
 		canvas.drawArc(r, -90, -degreesOut, false, p);
 		
 	}
