@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
+import android.widget.Button;
 import android.widget.TextView;
 import dod.hackathon.combatfeeding.objects.Day;
 
@@ -22,6 +23,8 @@ public class MainFragment extends Fragment {
 	Day thisDay;
 
 	public final int PROFILE_RESULT = 0;
+
+	Button logFood, logActivity;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -44,6 +47,15 @@ public class MainFragment extends Fragment {
 		carbProg = (ProgressCircleView) v.findViewById(R.id.surface_carbs);
 		fatProg = (ProgressCircleView) v.findViewById(R.id.surface_fat);
 		protProg = (ProgressCircleView) v.findViewById(R.id.surface_protein);
+		
+		logFood = (Button) v.findViewById(R.id.button_logfood);
+		logFood.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent iFoodPicker = new Intent(getActivity(), FoodPicker.class);
+				startActivity(iFoodPicker);
+			}
+		});
 
 		calText = (TextView) v.findViewById(R.id.text_calories);
 		carbText = (TextView) v.findViewById(R.id.text_carbs);

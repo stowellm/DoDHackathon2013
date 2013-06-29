@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ListView
+        android:id="@+id/picker_food_listview"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="5dp"
+        android:layout_above="@+id/picker_food_search_view" >
+    </ListView>
+
+    <LinearLayout
+        android:id="@id/picker_food_search_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:layout_alignParentBottom="true" >
+
+        <SearchView
+            android:id="@+id/picker_view_search"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:iconifiedByDefault="false"
+            android:layout_weight=".4" >
+        </SearchView>
+
+        <Spinner
+            android:id="@+id/picker_view_spinner"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight=".6" />
+    </LinearLayout>
+
+</RelativeLayout>

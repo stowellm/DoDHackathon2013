@@ -29,6 +29,11 @@
             android:label="My Profile"
             android:theme="@style/DialogTheme" >
         </activity>
+        <activity 
+            android:name="dod.hackathon.combatfeeding.FoodPicker"
+            android:label="Select Food"
+            android:theme="@style/DialogTheme">
+        </activity>
         
     </application>
 
