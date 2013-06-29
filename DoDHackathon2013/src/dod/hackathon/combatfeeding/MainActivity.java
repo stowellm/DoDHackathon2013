@@ -17,7 +17,7 @@ import com.kinvey.java.User;
 
 public class MainActivity extends Activity {
 
-	private Client mKinveyClient;
+	public static  Client mKinveyClient;
 	private String TAG = "COMBATFEED";
 	private SharedPreferences mPrefs;
 
@@ -66,6 +66,7 @@ public class MainActivity extends Activity {
 		MainFragment fragment = new MainFragment();
 		fragmentTransaction.add(R.id.mainholder, fragment);
 		fragmentTransaction.commit();
+		
 	}
 
 	@Override
