@@ -55,7 +55,7 @@ public class FoodPicker extends Activity {
 					long l) {
 				Food f = foodAdapter.getItem(pos);
 				Intent ret = new Intent();
-				//ret.putExtra("food", f);
+				ret.putExtra("food_id", (String)f.get("_id"));
 				setResult(RESULT_OK, ret);
 				finish();
 			}
@@ -76,7 +76,6 @@ public class FoodPicker extends Activity {
 		});
 
 		foods = getFoodsFromCache();
-		Log.e("tag", "The number of foods is: " + foods.size() + "with name: " + foods.get(0).get("ITEM"));
 		if (foods.equals(null) || foods.isEmpty()) {
 			new FetchFromKinveyTask().execute();
 		} else {

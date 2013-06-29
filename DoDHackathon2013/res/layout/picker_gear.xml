@@ -3,13 +3,22 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
+    <Button
+        android:id="@+id/picker_gear_ok"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:text="@android:string/ok" />
+    
     <TextView
         android:id="@+id/textTotalWeight"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/picker_gear_ok"
         android:padding="10dp"
-        android:text="Total Weight: " />
+        android:text="Total Weight: "
+        android:textSize="18sp" />
 
     <ListView
         android:id="@+id/picker_gear_listview"

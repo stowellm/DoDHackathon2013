@@ -165,7 +165,7 @@ public class MainFragment extends Fragment {
 		if(requestCode == RESULT_PROFILE) {
 			setupViews();
 		} else if(requestCode == RESULT_FOODPICKED) {
-			//Food resFood = (Food) data.getParcelableExtra("food");
+			String foodId = data.getStringExtra("food_id");
 			//thisDay.addFood(resFood);
 			setupViews();
 		} else if(requestCode == RESULT_GEAR) {
