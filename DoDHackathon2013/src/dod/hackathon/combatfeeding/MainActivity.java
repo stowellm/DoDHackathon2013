@@ -10,10 +10,12 @@ import com.kinvey.android.callback.KinveyPingCallback;
 import com.kinvey.android.callback.KinveyUserCallback;
 import com.kinvey.java.User;
 
+import dod.hackathon.combatfeeding.api.RestAPI;
+
 public class MainActivity extends Activity {
 	
 	public RestAPI rapi;
-	final Client mKinveyClient;
+	Client mKinveyClient;
 	final String TAG = "COMBATFEED";
 
 	@Override
