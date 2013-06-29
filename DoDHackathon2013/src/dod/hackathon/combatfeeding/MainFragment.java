@@ -9,23 +9,26 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.LinearLayout;
+import android.widget.ImageButton;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import dod.hackathon.combatfeeding.objects.Day;
 import dod.hackathon.combatfeeding.objects.FoodAdapter;
 
 public class MainFragment extends Fragment {
 
-	LinearLayout topBarLayout;
+	RelativeLayout topBarLayout;
 	ProgressCircleView calProg, carbProg, fatProg, protProg;
-	TextView userName, calText, carbText, fatText, protText;
+	TextView userName, loadType, calText, carbText, fatText, protText;
 	ListView loggedFoodList;
+	ImageButton btnGear;
 	
 	Day thisDay;
 
 	public final int RESULT_PROFILE = 0;
 	public final int RESULT_FOODPICKED = 1;
+	public final int RESULT_GEAR = 2;
 
 	Button logFood, logActivity, viewTimeline;
 	
@@ -39,7 +42,7 @@ public class MainFragment extends Fragment {
 
 		loggedFoodList = (ListView) v.findViewById(R.id.loggedFoodList);
 		
-		topBarLayout = (LinearLayout) v.findViewById(R.id.bar_userinfo);
+		topBarLayout = (RelativeLayout) v.findViewById(R.id.bar_userinfo);
 		topBarLayout.setOnClickListener(new OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -48,7 +51,19 @@ public class MainFragment extends Fragment {
 			}
 		});
 
+		btnGear = (ImageButton) v.findViewById(R.id.btn_gear);
+		btnGear.setOnClickListener(new OnClickListener() {
+
+			@Override
+			public void onClick(View v) {
+				Intent iGear = new Intent(getActivity(), GearPicker.class);
+				startActivityForResult(iGear, RESULT_GEAR);
+			}
+			
+		});
+		
 		userName = (TextView) v.findViewById(R.id.text_username);
+		loadType = (TextView) v.findViewById(R.id.text_loadtype);
 
 		calProg = (ProgressCircleView) v.findViewById(R.id.surface_calories);
 		calProg.setColor(getResources().getColor(R.color.calories_color));
@@ -104,6 +119,7 @@ public class MainFragment extends Fragment {
 		SharedPreferences mPrefs = getActivity().getSharedPreferences("dod_hackathon", 0);
 
 		userName.setText(mPrefs.getString("my_name", "John Doe"));
+		loadType.setText(mPrefs.getString("my_loadtype", ""));
 
 		int mHeight = mPrefs.getInt("height_inches", -1) + (mPrefs.getInt("height_feet", -1) * 12);
 		int mWeightDelta = 0;
@@ -136,6 +152,8 @@ public class MainFragment extends Fragment {
 			//Food resFood = (Food) data.getParcelableExtra("food");
 			//thisDay.addFood(resFood);
 			setupViews();
+		} else if(requestCode == RESULT_GEAR) {
+			
 		}
 	}
 
