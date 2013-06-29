@@ -1,39 +1,35 @@
 package dod.hackathon.combatfeeding.objects;
 
-import java.io.Serializable;
-
 import com.google.api.client.json.GenericJson;
 import com.google.api.client.util.Key;
 
-public class Food extends GenericJson implements Serializable {
-		
-	private static final long serialVersionUID = 3804307861108745651L;
-
-		@Key("ITEM")
-		private String name;
+public class Food extends GenericJson {
+	
+		@Key("CARBOHYDRATES_G")
+		public String carbs;
 		
 		@Key("MENU")
-		private String menu;
-		
-		@Key("ITEMTYPE")
-		private String itemType;
-		
-		@Key("_id")
-		private String id;
-		
-		@Key("RATION")
-		private String ration;
-		
-		@Key("CARBOHYDRATES_G")
-		private float carbs;
-		
-		@Key("PROTEIN_G")
-		private float proteins;
-		
-		@Key("TOTALFAT_G")
-		private float fats;
+		public String menu;
 		
 		@Key("CALORIES")
-		private float calories;
+		public String calories;
+	
+		@Key("_id")
+		public String id;
+		
+		@Key("RATION")
+		public String ration;
+	
+		@Key("ITEM")
+		public String name;
+		
+		@Key("TOTALFAT_G")
+		public String fats;
 
+		@Key("PROTEIN_G")
+		public String proteins;
+		
+		@Key("ITEMTYPE")
+		public String itemType;		
+		
 }
