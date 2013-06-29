@@ -4,6 +4,7 @@ import android.app.Fragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -43,9 +44,13 @@ public class MainFragment extends Fragment {
 		userName = (TextView) v.findViewById(R.id.text_username);
 
 		calProg = (ProgressCircleView) v.findViewById(R.id.surface_calories);
+		calProg.setColor(getResources().getColor(R.color.calories_color));
 		carbProg = (ProgressCircleView) v.findViewById(R.id.surface_carbs);
+		carbProg.setColor(getResources().getColor(R.color.carbs_color));
 		fatProg = (ProgressCircleView) v.findViewById(R.id.surface_fat);
+		fatProg.setColor(getResources().getColor(R.color.fat_color));
 		protProg = (ProgressCircleView) v.findViewById(R.id.surface_protein);
+		protProg.setColor(getResources().getColor(R.color.protein_color));
 		
 		logFood = (Button) v.findViewById(R.id.button_logfood);
 		logFood.setOnClickListener(new OnClickListener() {
@@ -87,6 +92,11 @@ public class MainFragment extends Fragment {
 		carbText.setText(thisDay.getCarbIntake() + "\nout of\n" + thisDay.getCarbRequired());
 		fatText.setText(thisDay.getFatIntake() + "\nout of\n" + thisDay.getFatRequired());
 		protText.setText(thisDay.getProteinIntake() + "\nout of\n" + thisDay.getProteinRequired());	
+		
+		calProg.setProgress(((float)thisDay.getCalorieIntake() / (float)thisDay.getCalorieRequired()) * 100);
+		carbProg.setProgress(((float)thisDay.getCarbIntake() / (float)thisDay.getCarbRequired()) * 100);
+		fatProg.setProgress(((float)thisDay.getFatIntake() / (float)thisDay.getFatRequired()) * 100);
+		protProg.setProgress(((float)thisDay.getProteinIntake() / (float)thisDay.getProteinRequired()) * 100);
 	}
 
 	@Override
