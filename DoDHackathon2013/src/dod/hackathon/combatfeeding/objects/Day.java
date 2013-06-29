@@ -10,77 +10,77 @@ public class Day {
 	}
 	
 	/* Basic Nutrition Fields */
-	private int calorieIntake;
-	private int calorieRequired;
-	private int proteinIntake;
-	private int proteinRequired;
-	private int fatIntake;
-	private int fatRequired;
-	private int carbIntake;
-	private int carbRequired;
+	private double calorieIntake;
+	private double calorieRequired;
+	private double proteinIntake;
+	private double proteinRequired;
+	private double fatIntake;
+	private double fatRequired;
+	private double carbIntake;
+	private double carbRequired;
 	
 	/* Logs for Excerise and foods */
 	private ArrayList<Exercise> exerciseLog;
 	private ArrayList<Food> foodLog;
 	
 	/* Getters and Setters for Nutrition Fields */
-	public int getCalorieIntake() {
+	public double getCalorieIntake() {
 		return calorieIntake;
 	}
 	
-	public void setCalorieIntake(int calorieIntake) {
+	public void setCalorieIntake(double calorieIntake) {
 		this.calorieIntake = calorieIntake;
 	}
 	
-	public int getCalorieRequired() {
+	public double getCalorieRequired() {
 		return calorieRequired;
 	}
 	
-	public int getProteinIntake() {
+	public double getProteinIntake() {
 		return proteinIntake;
 	}
 	
-	public void setProteinIntake(int proteinIntake) {
+	public void setProteinIntake(double proteinIntake) {
 		this.proteinIntake = proteinIntake;
 	}
 	
-	public int getProteinRequired() {
+	public double getProteinRequired() {
 		return proteinRequired;
 	}
 	
-	public void setProteinRequired(int proteinRequired) {
+	public void setProteinRequired(double proteinRequired) {
 		this.proteinRequired = proteinRequired;
 	}
 	
-	public int getFatIntake() {
+	public double getFatIntake() {
 		return fatIntake;
 	}
 	
-	public void setFatIntake(int fatIntake) {
+	public void setFatIntake(double fatIntake) {
 		this.fatIntake = fatIntake;
 	}
 	
-	public int getFatRequired() {
+	public double getFatRequired() {
 		return fatRequired;
 	}
 	
-	public void setFatRequired(int fatRequired) {
+	public void setFatRequired(double fatRequired) {
 		this.fatRequired = fatRequired;
 	}
 	
-	public int getCarbIntake() {
+	public double getCarbIntake() {
 		return carbIntake;
 	}
 	
-	public void setCarbIntake(int carbIntake) {
+	public void setCarbIntake(double carbIntake) {
 		this.carbIntake = carbIntake;
 	}
 	
-	public int getCarbRequired() {
+	public double getCarbRequired() {
 		return carbRequired;
 	}
 	
-	public void setCarbRequired(int carbRequired) {
+	public void setCarbRequired(double carbRequired) {
 		this.carbRequired = carbRequired;
 	}
 	
@@ -94,25 +94,25 @@ public class Day {
 	}
 	
 	/* Function to calculate the required values */
-	public void calcRequiredValues(boolean isMale, int age, int height, float weight, int weightDir) {
+	public void calcRequiredValues(boolean isMale, double age, double height, float weight, double weightDir) {
 		//Harris-Benedict Formula for calculating required calories
 		if(isMale) {
-			calorieRequired = (int) (66 + ( 6.23 * weight ) + ( 12.7 * height ) - ( 6.8 * age ));
+			calorieRequired = (double) (66 + ( 6.23 * weight ) + ( 12.7 * height ) - ( 6.8 * age ));
 		} else {
-			calorieRequired = (int) (655 + ( 4.35 * weight ) + ( 4.7 * height ) - ( 4.7 * age ));
+			calorieRequired = (double) (655 + ( 4.35 * weight ) + ( 4.7 * height ) - ( 4.7 * age ));
 		}
-		if(weightDir == 0) { //percentages for maintaining weight
-			fatRequired = (int) (calorieRequired * 0.3);
-			proteinRequired = (int) (calorieRequired * 0.2);
-			carbRequired = (int) (calorieRequired * 0.5);
+		if(weightDir == 0) { //percentages for madoubleaining weight
+			fatRequired = (double) (calorieRequired * 0.3);
+			proteinRequired = (double) (calorieRequired * 0.2);
+			carbRequired = (double) (calorieRequired * 0.5);
 		} else if(weightDir < 0) { //percentages for gaining weight
-			fatRequired = (int) (calorieRequired * 0.25);
-			proteinRequired = (int) (calorieRequired * 0.30);
-			carbRequired = (int) (calorieRequired * 0.45);
+			fatRequired = (double) (calorieRequired * 0.25);
+			proteinRequired = (double) (calorieRequired * 0.30);
+			carbRequired = (double) (calorieRequired * 0.45);
 		} else { //percentages for losing weight
-			fatRequired = (int) (calorieRequired * 0.3);
-			proteinRequired = (int) (calorieRequired * 0.2);
-			carbRequired = (int) (calorieRequired * 0.5);
+			fatRequired = (double) (calorieRequired * 0.3);
+			proteinRequired = (double) (calorieRequired * 0.2);
+			carbRequired = (double) (calorieRequired * 0.5);
 			calorieRequired -= 500;
 		}
 	}
@@ -128,6 +128,9 @@ public class Day {
 	// Add a new food to food log.
 	public void addFood(Food food) {
 		foodLog.add(food);
+		for(Food f : foodLog) {
+			calorieIntake += Double.parseDouble((String)f.get("CALORIES"));
+		}
 	}
 	
 	// Delete an exercise from exercise log.
