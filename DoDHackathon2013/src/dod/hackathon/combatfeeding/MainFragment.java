@@ -61,6 +61,15 @@ public class MainFragment extends Fragment {
 			}
 		});
 		
+		logActivity = (Button) v.findViewById(R.id.button_logactivity);
+		logActivity.setOnClickListener(new OnClickListener() {
+			@Override
+			public void onClick(View arg0) {
+				Intent iExercisePicker = new Intent(getActivity(), ExercisePicker.class);
+				startActivity(iExercisePicker);
+			}
+		});
+		
 		viewTimeline = (Button) v.findViewById(R.id.button_viewday);
 
 		calText = (TextView) v.findViewById(R.id.text_calories);

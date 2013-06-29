@@ -43,4 +43,13 @@
     <string name="calories_unit">kCal</string>
     <string name="grams_unit">g</string>
     
+    <!-- Strings for picker_exercise -->
+    <string name="combat">Combat</string>
+    <string name="non_combat">Non-Combat</string>
+    
+    <!-- Strings for list_element_exercise -->
+    <string name="placeholder_exercise_name">Exercise Name</string>
+    <string name="placeholder_time">13:00</string>
+    <string name="placeholder_calories_exer">1250 calories</string>
+    
 </resources>
